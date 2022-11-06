@@ -86,7 +86,7 @@ MDR_reg, MDR_next, MAR_reg, MAR_next, Zflag_reg, zflag_next);
   output reg Zflag_reg;
   input wire zflag_next;
   
-  always @(posedge clk); begin
+  always @(posedge clk) begin
     case(rst)
       0: begin
         PC_reg <= PC_next;
