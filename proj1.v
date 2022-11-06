@@ -56,45 +56,88 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
   input [7:0] opcode;
   output reg muxPC, muxMAR, muxACC, loadMAR, loadPC, loadACC, loadMDR, loadIR, MemRW;
   output reg [1:0] opALU;
+  reg [3:0] state;
   
+  always @(posedge rst) begin
+    state = 0;
+  end
   
+// 0x01 ADD
+// 0x02 SUB
+// 0x03 MUL
+// 0x04 DIV
+// 0x05 XOR
+// 0x06 JUMP
+// 0x07 JUMPZ
+// 0x08 STORE
+// 0x09 LOAD
   
   always @(posedge clk) begin
     case(state)
       00: begin //Fetch 1
-      
+        muxMAR = 0;
+        muxPC = 0;
+        loadPC = 1;
+        loadMAR = 1;
+        state = 1;
       end
       01: begin //Fetch 2
-      
+        MemRW = 0;
+        loadMDR = 1;
+        state = 2;
       end
       02: begin //Fetch 3
-      
+        loadIR = 1;
+        state = 3;
       end
       03: begin //Decode
-      
+        muxMAR = 1;
+        loadMAR = 1;
+        
+        if(opcode == 
+        
+        
+        
+        
+        
+        
       end
       4: begin //ADD_1
-      
+        MemRW = 0;
+        loadMDR = 1;
       end
       5: begin //ADD_2
-      
+        loadACC = 1;
+        muxACC = 0;
+        opALU = 0;
       end
       6: begin //XOR_1
-      
+        MemRW = 0;
+        loadMDR = 1;
+        
       end
       7: begin //XOR_2
+        loadACC = 1;
+        muxACC = 0;
+        opALU = 1;
       
       end
       8: begin //LOAD_1
+        MemRW = 0;
+        loadMDR = 1;
       
       end
       9: begin //LOAD_2
-      
+        loadACC = 1;
+        muxACC = 0;
       end
       10: begin //STORE_1
+        MemRW = 0;
       
       end
       11: begin //JUMP
+        muxPC = 1;
+        loadPC = 1;
       
       end
       12: begin //DIV_1
@@ -120,9 +163,9 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
       // end
   
   
-  
+    endcase
   end
-  endmodule
+endmodule
 
 //---------//
 //REGISTERS//
@@ -153,18 +196,18 @@ MDR_reg, MDR_next, MAR_reg, MAR_next, Zflag_reg, zflag_next);
   always @(posedge clk) begin
     case(rst)
       0: begin
-        PC_reg <= PC_next;
-        IR_reg <= IR_next;
-        ACC_reg <= ACC_next;
-        MDR_reg <= MDR_next;
-        MAR_reg <= MAR_next;
+        PC_reg = PC_next;
+        IR_reg = IR_next;
+        ACC_reg = ACC_next;
+        MDR_reg = MDR_next;
+        MAR_reg = MAR_next;
       end
       1: begin  
-        PC_reg <= 0;
-        IR_reg <= 0;
-        ACC_reg <= 0;
-        MDR_reg <= 0;
-        MAR_reg <= 0;
+        PC_reg = 0;
+        IR_reg = 0;
+        ACC_reg = 0;
+        MDR_reg = 0;
+        MAR_reg = 0;
       end
     endcase
   end
@@ -175,6 +218,7 @@ endmodule
 //--------//
 module datapath(clk,rst,muxPC,muxMAR,muxACC,loadMAR,loadPC,loadACC,loadMDR,
 loadIR,opALU,zflag,opcode,MemAddr,MemD,MemQ);
+  
   input clk;
   input rst;
   input muxPC;
