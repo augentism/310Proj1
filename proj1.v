@@ -58,6 +58,70 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
   output reg [1:0] opALU;
   
   
+  
+  always @(posedge clk) begin
+    case(state)
+      00: begin //Fetch 1
+      
+      end
+      01: begin //Fetch 2
+      
+      end
+      02: begin //Fetch 3
+      
+      end
+      03: begin //Decode
+      
+      end
+      4: begin //ADD_1
+      
+      end
+      5: begin //ADD_2
+      
+      end
+      6: begin //XOR_1
+      
+      end
+      7: begin //XOR_2
+      
+      end
+      8: begin //LOAD_1
+      
+      end
+      9: begin //LOAD_2
+      
+      end
+      10: begin //STORE_1
+      
+      end
+      11: begin //JUMP
+      
+      end
+      12: begin //DIV_1
+      
+      end
+      13: begin //DIV_WAIT
+      
+      end
+      14: begin //MULT_1
+      
+      end
+      15: begin //MULT_WAIT
+      
+      end
+      // 16: begin
+      
+      // end
+      // 17: begin
+      
+      // end
+      // 18: begin
+      
+      // end
+  
+  
+  
+  end
   endmodule
 
 //---------//
