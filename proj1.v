@@ -24,16 +24,16 @@ endmodule
 //----------//
 module ram(we, d, q, addr);
   input we;
-  input[15:0] d;
-  output [15:0] q;
+  input [15:0] d;
+  output reg [15:0] q;
   input [7:0] addr;
   reg [15:0] MEM [0:16383];
   
-  always@ (addr)
+  always@ (addr) begin
     if(we) begin
-      MEM[addr] <= q;
+      MEM[addr] <= d;
     end else begin
-      d <= MEM[addr]
+      q <= MEM[addr];
     end
   end
 endmodule
