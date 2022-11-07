@@ -29,5 +29,15 @@ loadIR,opALU,zflag,opcode,MemAddr,MemD,MemQ);
   wire [7:0]PC_reg;
   wire [15:0]IR_reg;
   wire [15:0]ACC_reg;
+  wire [15:0]MDR_reg;
+  wire [7:0]MAR_reg;
+  wire zflag_reg;
+  wire [15:0]ALU_out;
+  
+  
+  
+  
+  
+  
   
 endmodule

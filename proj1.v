@@ -27,7 +27,15 @@ module ram(we, d, q, addr);
   input[15:0] d;
   output [15:0] q;
   input [7:0] addr;
-
+  reg [15:0] MEM [0:16383];
+  
+  always@ (addr)
+    if(we) begin
+      MEM[addr] <= q;
+    end else begin
+      d <= MEM[addr]
+    end
+  end
 endmodule
 
 
