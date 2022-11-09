@@ -2,12 +2,18 @@
 //CONTROLLER//
 //----------//
 module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, loadACC,
-			loadMDR, loadIR, opALU, MemRW);
+			loadMDR, loadIR, opALU, MemRW, ACC_reg, MDR_reg, div_out, isDivide);
   input clk, rst, zflag;
   input [7:0] opcode;
+  input [15:0] ACC_reg, MDR_reg;
   output reg muxPC, muxMAR, muxACC, loadMAR, loadPC, loadACC, loadMDR, loadIR, MemRW;
   output reg [1:0] opALU;
-  reg [3:0] state, next_state;
+  output wire [15:0] div_out;
+  reg [4:0] state, next_state;
+  reg remain;
+  reg done;
+  reg load;
+  output reg isDivide;
   
 
   
@@ -27,24 +33,36 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
       state <= 0;
     end else begin 
     state <= next_state;
-    end
+  end
     
-    
+    my8bitdivider div_bitch(div_next, remain, done, ACC_reg, MDR_reg, 
+                  load,clk,rst);
+                  
+                  
     always @(*) begin
     
     muxPC = (state == 11) ? 1 : 0;
     muxMAR = (state == 3) ? 1 : 0;
-    muxACC = (state == 9) ? 1 : 0;
+    muxACC = (state == 9) ? 0 : 1;
     loadMAR = (state == 0 || state == 3) ? 1 : 0;
     loadPC = (state == 0 || state == 11) ? 1 : 0;
+    
     loadACC = (state == 5 || state == 7 || state == 9 ||
-               state == 13 || state == 15) ? 1 : 0;
+               state == 16 || state == 15) ? 1 : 0;
+               
     loadMDR = (state == 1 || state == 6 || state == 12 ||
                state == 4 || state == 8 || state == 14) ? 1 : 0;
+               
     loadIR = (state == 2) ? 1 : 0;
     MemRW = (state == 10) ? 1 : 0;
-    opALU = (state == 5 && opcode == 1) ? 1 : 0;
-    opALU = (state == 5 && opcode == 2) ? 3 : 0;
+    
+    load = (state == 12) ? 1:0;
+    
+    if(state == 5) opALU = (opcode == 1) ? 1:3;
+    if(state == 14) opALU = 2;
+    else opALU = 0;
+      
+    
     
     
     case(state)
@@ -122,14 +140,18 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
         next_state = 13;
       
       end
-      13: begin //DIV_WAIT
+      13: begin //DIV_2
+      if(done) next_state = 16;
         //if(my 8 bit divider is done)
         //next_state = 0;
       end
       14: begin //MULT_1
         next_state = 15;
       end
-      15: begin //MULT_WAIT
+      15: begin //MULT_2
+        next_state = 0;
+      end
+      16: begin //div_wait
         next_state = 0;
       end
     endcase

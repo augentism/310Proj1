@@ -11,10 +11,23 @@ module proj1(clk, rst, MemRW_IO, MemAddr_IO, MemD_IO);
   output MemRW_IO;
   output [7:0] MemAddr_IO;
   output [15:0] MemD_IO;
-
-
-
-
+  wire isDivide;
+  wire muxPC, muxMAR, muxACC, loadMAR, loadPC, loadACC, loadMDR,loadIR,MemRW,
+       zflag;
+  wire [7:0] opcode;
+  wire [15:0] ACC_reg, MDR_reg, div_out;
+  
+  //wire MemRW;
+  wire [15:0] MemD, MemQ;
+  wire [7:0] MemAddr;
+  //wire ACC_reg, MDR_reg;
+  
+  ram memory(MemRW, MemD, MemQ, MemAddr);
+  datapath data(clk,rst,muxPC, muxMAR, muxACC,loadMAR,loadPC,loadACC,loadMDR,
+            loadIR,opALU,zflag,opcode,MemAddr,MemD,MemQ, div_out, isDivide, 
+            ACC_reg, MDR_reg);
+  ctr controller(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC,
+  loadACC,loadMDR, loadIR, opALU, MemRW, ACC_reg, MDR_reg, div_out, isDivide);
 
 endmodule
 
@@ -72,18 +85,18 @@ MDR_reg, MDR_next, MAR_reg, MAR_next, Zflag_reg, zflag_next);
   always @(posedge clk) begin
     case(rst)
       0: begin
-        PC_reg = PC_next;
-        IR_reg = IR_next;
-        ACC_reg = ACC_next;
-        MDR_reg = MDR_next;
-        MAR_reg = MAR_next;
+        PC_reg <= PC_next;
+        IR_reg <= IR_next;
+        ACC_reg <= ACC_next;
+        MDR_reg <= MDR_next;
+        MAR_reg <= MAR_next;
       end
       1: begin  
-        PC_reg = 0;
-        IR_reg = 0;
-        ACC_reg = 0;
-        MDR_reg = 0;
-        MAR_reg = 0;
+        PC_reg <= 0;
+        IR_reg <= 0;
+        ACC_reg <= 0;
+        MDR_reg <= 0;
+        MAR_reg <= 0;
       end
     endcase
   end

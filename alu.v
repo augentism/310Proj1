@@ -4,15 +4,21 @@
 module alu(A, B, opALU, Rout);
   input [15:0] A, B;
   input [1:0] opALU;
-  output [16:0] Rout;
+  output reg [16:0] Rout;
   wire dummy;
   wire [15:0] addOut;
   wire [15:0] xorOut;
+  wire [15:0] multOut;
   
   
-  my16bitaddsub_gate(addOut, dummy, A, B, opALU[1]);
-  muxxor16(xorOut, A, B);
-  my16bitmux(Rout, xorOut, addOut, opALU[0]);
+  my16bitaddsub_gate subby_boi(addOut, dummy, A, B, opALU[1]);
+  muxxor16 muxy_boi(xorOut, A, B);
+  multiply multy_boi(multOut, A, B);
+  //my16bitmux(Rout, xorOut, addOut, opALU[0]);
+  always @ (*) begin
+	if(opALU != 2) Rout = (opALU[0]) ? addOut : xorOut;
+	else Rout = multOut;
+  end
 endmodule
 
 
@@ -202,4 +208,38 @@ module my16bitaddsub_gate(output [15:0] O, output Cout, input [15:0] A, B, input
   muxnot nF(b_n[15], B[15]);
   my16bitmux m0(b_carry,B,b_n,S);
   my16bitfulladder fa0(O,Cout,A,b_carry,S);
+endmodule
+
+module multiply(s, x, y);
+  input [7:0]x, y;
+  output [15:0]s;
+  reg [15:0]one, two, three, four, five, six, seven, eight, o;
+  always @ (x)
+  begin
+    assign one = y[0] ? x : 16'b0;
+    
+    assign two = y[1] ? x : 16'b0;
+    assign two = two << 1;
+    
+    assign three = y[2] ? x : 16'b0;
+    assign three = three << 2;
+    
+    assign four = y[3] ? x : 16'b0;
+    assign four = four << 3;
+    
+    assign five = y[4] ? x : 16'b0;
+    assign five = five << 4;
+    
+    assign six = y[5] ? x : 16'b0;
+    assign six = six << 5;
+    
+    assign seven = y[6] ? x : 16'b0;
+    assign seven = seven << 6;
+    
+    assign eight = y[7] ? x : 16'b0;
+    assign eight = eight << 7;
+    
+    assign o = one+two+three+four+five+six+seven+eight;
+  end
+  assign s =o;
 endmodule
