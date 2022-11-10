@@ -10,8 +10,8 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
   output reg [1:0] opALU;
   output wire [15:0] div_out;
   reg [4:0] state, next_state;
-  reg remain;
-  reg done;
+  wire [15:0] remain;
+  wire done;
   reg load;
   output reg isDivide;
   
@@ -35,7 +35,7 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
     state <= next_state;
   end
     
-    my8bitdivider div_bitch(div_next, remain, done, ACC_reg, MDR_reg, 
+    my8bitdivider div_bitch(div_out, remain, done, ACC_reg, MDR_reg, 
                   load,clk,rst);
                   
                   

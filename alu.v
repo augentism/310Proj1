@@ -4,7 +4,7 @@
 module alu(A, B, opALU, Rout);
   input [15:0] A, B;
   input [1:0] opALU;
-  output reg [16:0] Rout;
+  output reg [15:0] Rout;
   wire dummy;
   wire [15:0] addOut;
   wire [15:0] xorOut;
@@ -13,7 +13,7 @@ module alu(A, B, opALU, Rout);
   
   my16bitaddsub_gate subby_boi(addOut, dummy, A, B, opALU[1]);
   muxxor16 muxy_boi(xorOut, A, B);
-  multiply multy_boi(multOut, A, B);
+  multiply multy_boi(multOut[7:0], A[7:0], B[7:0]);
   //my16bitmux(Rout, xorOut, addOut, opALU[0]);
   always @ (*) begin
 	if(opALU != 2) Rout = (opALU[0]) ? addOut : xorOut;
@@ -149,8 +149,8 @@ endmodule
 module my16bitfulladder(output [15:0] S, output Cout, input [15:0] A, B, input Cin);
   wire c;
 
-  my8bitfulladder a1(c, S[7:0], A[7:0],B[7:0],Cin);
-  my8bitfulladder a2(Cout, S[15:8], A[15:8],B[15:8],c);
+  my8bitfulladder a1(S[7:0], c, A[7:0],B[7:0],Cin);
+  my8bitfulladder a2( S[15:8],Cout, A[15:8],B[15:8],c);
 endmodule
 
 //4bit multiplexer
@@ -166,8 +166,8 @@ module my8bitmux(output [7:0] Out, input [7:0] A, B, input sel);
 endmodule
 
 module my16bitmux(output [15:0] Out, input [15:0] A, B, input sel);
- my1bitmux m1 (Out[15:8], A[15:8], B[15:8], sel);
- my1bitmux m0 (Out[7:0], A[7:0], B[7:0], sel);
+ my8bitmux m100 (Out[15:8], A[15:8], B[15:8], sel);
+ my8bitmux m000 (Out[7:0], A[7:0], B[7:0], sel);
 endmodule
 
 //add and sub from 4bit full adder
@@ -189,7 +189,7 @@ endmodule
 module my16bitaddsub_gate(output [15:0] O, output Cout, input [15:0] A, B, input S);  
   supply0 gnd;
   wire [15:0] b_n;
-  wire b_carry;
+  wire [15:0] b_carry;
   muxnot n0(b_n[0], B[0]);
   muxnot n1(b_n[1], B[1]);
   muxnot n2(b_n[2], B[2]);
@@ -212,8 +212,8 @@ endmodule
 
 module multiply(s, x, y);
   input [7:0]x, y;
-  output [15:0]s;
-  reg [15:0]one, two, three, four, five, six, seven, eight, o;
+  output [7:0]s;
+  reg [7:0]one, two, three, four, five, six, seven, eight, o;
   always @ (x)
   begin
     assign one = y[0] ? x : 16'b0;

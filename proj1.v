@@ -16,6 +16,7 @@ module proj1(clk, rst, MemRW_IO, MemAddr_IO, MemD_IO);
        zflag;
   wire [7:0] opcode;
   wire [15:0] ACC_reg, MDR_reg, div_out;
+  wire [1:0] opALU;
   
   //wire MemRW;
   wire [15:0] MemD, MemQ;
