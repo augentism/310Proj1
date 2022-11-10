@@ -13,7 +13,7 @@ module alu(A, B, opALU, Rout);
   
   my16bitaddsub_gate subby_boi(addOut, dummy, A, B, opALU[1]);
   muxxor16 muxy_boi(xorOut, A, B);
-  multiply multy_boi(multOut[7:0], A[7:0], B[7:0]);
+  multiply multy_boi(multOut[15:0], A[7:0], B[7:0]);
   //my16bitmux(Rout, xorOut, addOut, opALU[0]);
   always @ (*) begin
 	if(opALU != 2) Rout = (opALU[0]) ? addOut : xorOut;
@@ -186,6 +186,8 @@ module my8bitaddsub_gate(output [7:0] O, output Cout, input [7:0] A, B, input S)
   my8bitfulladder fa0(O,Cout,A,b_carry,S);
 endmodule
 
+
+
 module my16bitaddsub_gate(output [15:0] O, output Cout, input [15:0] A, B, input S);  
   supply0 gnd;
   wire [15:0] b_n;
@@ -198,8 +200,8 @@ module my16bitaddsub_gate(output [15:0] O, output Cout, input [15:0] A, B, input
   muxnot n5(b_n[5], B[5]);
   muxnot n6(b_n[6], B[6]);
   muxnot n7(b_n[7], B[7]);
-  muxnot n8(b_n[8], B[0]);
-  muxnot n9(b_n[9], B[1]);
+  muxnot n8(b_n[8], B[8]);
+  muxnot n9(b_n[9], B[9]);
   muxnot nA(b_n[10], B[10]);
   muxnot nB(b_n[11], B[11]);
   muxnot nC(b_n[12], B[12]);
@@ -210,36 +212,59 @@ module my16bitaddsub_gate(output [15:0] O, output Cout, input [15:0] A, B, input
   my16bitfulladder fa0(O,Cout,A,b_carry,S);
 endmodule
 
-module multiply(s, x, y);
-  input [7:0]x, y;
-  output [7:0]s;
-  reg [7:0]one, two, three, four, five, six, seven, eight, o;
-  always @ (x)
-  begin
-    assign one = y[0] ? x : 16'b0;
+// module multiply(s, x, y);
+  // input [7:0]x, y;
+  // output [7:0]s;
+  // reg [7:0]one, two, three, four, five, six, seven, eight, o;
+  // always @ (x)
+  // begin
+    // assign one = y[0] ? x : 16'b0;
     
-    assign two = y[1] ? x : 16'b0;
-    assign two = two << 1;
+    // assign two = y[1] ? x : 16'b0;
+    // assign two = two << 1;
     
-    assign three = y[2] ? x : 16'b0;
-    assign three = three << 2;
+    // assign three = y[2] ? x : 16'b0;
+    // assign three = three << 2;
     
-    assign four = y[3] ? x : 16'b0;
-    assign four = four << 3;
+    // assign four = y[3] ? x : 16'b0;
+    // assign four = four << 3;
     
-    assign five = y[4] ? x : 16'b0;
-    assign five = five << 4;
+    // assign five = y[4] ? x : 16'b0;
+    // assign five = five << 4;
     
-    assign six = y[5] ? x : 16'b0;
-    assign six = six << 5;
+    // assign six = y[5] ? x : 16'b0;
+    // assign six = six << 5;
     
-    assign seven = y[6] ? x : 16'b0;
-    assign seven = seven << 6;
+    // assign seven = y[6] ? x : 16'b0;
+    // assign seven = seven << 6;
     
-    assign eight = y[7] ? x : 16'b0;
-    assign eight = eight << 7;
+    // assign eight = y[7] ? x : 16'b0;
+    // assign eight = eight << 7;
     
-    assign o = one+two+three+four+five+six+seven+eight;
-  end
-  assign s =o;
+    // assign o = one+two+three+four+five+six+seven+eight;
+  // end
+  // assign s =o;
+// endmodule
+
+module multiply(output reg [15:0] s, input [7:0] y, input[7:0] x);
+reg [7:0] p0, p1, p2, p3, p4, p5, p6, p7;
+always @(*) begin
+    p0 = x[0] ? y : 8'd0; 
+    p1 = (x[1] ? y : 8'd0);
+    p2 = (x[2] ? y : 8'd0);
+    p3 = (x[3] ? y : 8'd0);
+    p4 = (x[4] ? y : 8'd0);
+    p5 = (x[5] ? y : 8'd0);
+    p6 = (x[6] ? y : 8'd0);
+    p7 = (x[7] ? y : 8'd0);
+
+    s = p0 
+        + (p1 << 3'd1) 
+        + (p2 << 3'd2) 
+        + (p3 << 3'd3)
+        + (p4 << 3'd4)
+        + (p5 << 3'd5)
+        + (p6 << 3'd6)
+        + (p7 << 3'd7);
+end
 endmodule

@@ -56,10 +56,12 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
     loadIR = (state == 2) ? 1 : 0;
     MemRW = (state == 10) ? 1 : 0;
     
-    load = (state == 12) ? 1:0;
+    load = (state == 13) ? 1:0;
     
+	isDivide = (state == 12 || state ==13 || state == 16) ? 1:0;
+	
     if(state == 5) opALU = (opcode == 1) ? 1:3;
-    if(state == 14) opALU = 2;
+    else if(state == 15) opALU = 2;
     else opALU = 0;
       
     
@@ -141,7 +143,7 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
       
       end
       13: begin //DIV_2
-      if(done) next_state = 16;
+      next_state = 16;
         //if(my 8 bit divider is done)
         //next_state = 0;
       end
@@ -152,7 +154,7 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
         next_state = 0;
       end
       16: begin //div_wait
-        next_state = 0;
+        next_state = (done) ? 0:16;
       end
     endcase
   end

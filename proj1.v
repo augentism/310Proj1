@@ -101,85 +101,141 @@ MDR_reg, MDR_next, MAR_reg, MAR_next, Zflag_reg, zflag_next);
 endmodule
 
 
-module my8bitdivider(output reg [15:0] Q,R, output reg Done, input [15:0] A, B, 
-                    input Load,Clk,Reset);
-//  parameter default=3'bxx;
-//  parameter load=3'b000;
-//  parameter read=3'b001;
-//  parameter write=3'b010;
-  reg[2:0] state;
+// module my8bitdivider(output reg [15:0] Q,R, output reg Done, input [15:0] A, B, 
+                    // input Load,Clk,Reset);
+// //  parameter default=3'bxx;
+// //  parameter load=3'b000;
+// //  parameter read=3'b001;
+// //  parameter write=3'b010;
+  // reg[2:0] state;
 
-  reg[15:0] A_reg, B_reg;
-  reg dummy;
+  // reg[15:0] A_reg, B_reg;
+  // reg dummy;
 
-  reg [15:0] A_temp;
-  reg [15:0] B_temp;
-  reg S_temp;
-  wire [15:0] O_temp;
-  wire c_temp;
-  my16bitaddsub_gate a0(O_temp,c_temp,A_temp,B_temp,S_temp);
+  // reg [15:0] A_temp;
+  // reg [15:0] B_temp;
+  // reg S_temp;
+  // wire [15:0] O_temp;
+  // wire c_temp;
+  // my16bitaddsub_gate a0(O_temp,c_temp,A_temp,B_temp,S_temp);
   
   
   
   
-  always @(posedge Clk)
-    begin
-      A_reg = A;
-      B_reg = B;
-      if(Reset==1) begin
-        state = 0;
-      end   
-    case(state)
-    0:
-    begin
-      if(Load) begin
-        R = A_reg;
-        Q = 0;
-        Done = 0;
-        state = 1;
+  // always @(posedge Clk)
+    // begin
+      // A_reg = A;
+      // B_reg = B;
+      // if(Reset==1) begin
+        // state = 0;
+      // end   
+    // case(state)
+    // 0:
+    // begin
+      // if(Load) begin
+        // R = A_reg;
+        // Q = 0;
+        // Done = 0;
+        // state = 1;
         
-      end  
-    end
-    1:
-    //If ( R < B_reg ) state 2
-    //Else state 5
-    begin
-      if( R < B_reg ) begin
-          state = 5;
-      end else begin
-          state = 2;
-      end
-    end
-    2:
-    begin
+      // end  
+    // end
+    // 1:
+    // //If ( R < B_reg ) state 2
+    // //Else state 5
+    // begin
+      // if( R < B_reg ) begin
+          // state = 5;
+      // end else begin
+          // state = 2;
+      // end
+    // end
+    // 2:
+    // begin
 
-      A_temp = R;
-      B_temp = B_reg;
-      S_temp = 1;
-      state = 3;
-    end
-    3:
-    begin
-      R = O_temp;
-      dummy = c_temp;
-      A_temp = Q;
-      B_temp = 1;
-      S_temp = 0;
-      state = 4;
-    end
-    4:
-    begin
-      Q = O_temp;
-      dummy = c_temp;
-      state = 1;
-    end
-    5:
-    begin
-      Done = 1;
-      state = 0;
-    end
-    endcase
+      // A_temp = R;
+      // B_temp = B_reg;
+      // S_temp = 1;
+      // state = 3;
+    // end
+    // 3:
+    // begin
+      // R = O_temp;
+      // dummy = c_temp;
+      // A_temp = Q;
+      // B_temp = 1;
+      // S_temp = 0;
+      // state = 4;
+    // end
+    // 4:
+    // begin
+      // Q = O_temp;
+      // dummy = c_temp;
+      // state = 1;
+    // end
+    // 5:
+    // begin
+      // Done = 1;
+      // state = 0;
+    // end
+    // endcase
+  // end
+// endmodule
+
+module my8bitdivider(output reg [15:0] Q, R, output reg Done, input [15:0] A, B, input Load, clk, Reset);
+  parameter S0 = 3'b000,  
+            S1 = 3'b001,  
+            S2 = 3'b010,  
+            S3 = 3'b011,  
+            S4 = 3'b100,  
+            S5 = 3'b101;
+  
+  // need 3 bits to represent 5 states     
+  reg [2:0] state, next;
+  
+  wire C_out;
+  reg S;
+  
+  reg [15:0] A_reg, B_reg, A_temp, B_temp;
+  wire [15:0] O_temp;
+  reg unused;
+  
+  always @ (posedge clk, posedge Reset)
+  begin
+    if (Reset)
+      state <= S0;
+    else
+      state <= next;
   end
+  
+  my16bitaddsub_gate a0(O_temp, C_out, A_temp, B_temp, S);
+  
+  always @ (state or Load)
+    case (state)
+        S0: begin
+              if (Load)
+                begin A_reg=A; B_reg=B; R=A_reg; Q=0; Done=0; next = S1; end
+              else next = S0;
+            end
+              
+        S1: begin 
+              if(R >= B_reg) next = S2;
+              else next = S5; 
+            end
+        // select 1 for subtract                    
+        S2: begin A_temp=R; B_temp=B_reg; S=1; next=S3; end
+              
+        S3: begin R=O_temp; unused=C_out; A_temp=Q; B_temp=1; S=0; next=S4; end
+        
+        S4: begin Q=O_temp; unused=C_out; next=S1; end
+                      
+        S5: begin Done=1; next=S0; end
+        
+        default: 
+            begin 
+              A_temp=0; B_temp=0; S=0; A_reg=0; B_reg=0; R=0; Q=0; Done=0; unused=0; next=S0;
+            end
+    endcase
 endmodule
 
 module proj1_tb();

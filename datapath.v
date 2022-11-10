@@ -50,16 +50,16 @@ loadIR,opALU,zflag,opcode,MemAddr,MemD,MemQ, div_out, isDivide, ACC_reg, MDR_reg
 
  
   always @ (*) begin
-    PC_next = (loadPC) ? ((muxPC) ?  IR_reg[15:8]:PC_reg) : 0;
-    IR_next = (loadIR) ? MDR_reg : 0;     //???
+    PC_next = (loadPC) ? ((muxPC) ?  IR_reg[15:8]:PC_reg + 1) : PC_reg;
+    IR_next = (loadIR) ? MDR_reg : IR_reg;     //???
 
     //if(loadACC == 1) ACC_next = (muxACC) ? ALU_out: MDR_reg;
 
-    ACC_next = loadACC ? ((muxACC) ? MDR_reg:((isDivide) ? ALU_out : div_out)):ACC_reg;
+    ACC_next = loadACC ? ((muxACC) ? ((isDivide) ? div_out : ALU_out):MDR_reg):ACC_reg;
 	
-    MDR_next = (loadMDR) ? MemQ: 0;      //???
+    MDR_next = (loadMDR) ? MemQ: MDR_reg;      //???
 	
-    MAR_next = loadMAR ? ((muxMAR) ? IR_reg[15:8]:PC_reg) : 0;
+    MAR_next = loadMAR ? ((muxMAR) ? IR_reg[15:8]:PC_reg) : MAR_next;
     
     zflag_next = (ACC_reg==0) ? 1:0;
 	zflag = (ACC_reg==0) ? 1:0;
