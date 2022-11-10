@@ -87,7 +87,7 @@ module ctr(clk, rst, zflag, opcode, muxPC, muxMAR, muxACC, loadMAR, loadPC, load
         if(opcode == 3) begin
           next_state = 14; //mult
         end
-        if(opcode == 04) begin
+        if(opcode == 4) begin
           next_state = 12; //div
         end
         if(opcode == 5) begin

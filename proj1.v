@@ -1,7 +1,5 @@
 
 
-
-
 //----------------//
 //TOP LEVEL MODULE//
 //----------------//
@@ -23,7 +21,7 @@ module proj1(clk, rst, MemRW_IO, MemAddr_IO, MemD_IO);
   wire [7:0] MemAddr;
   //wire ACC_reg, MDR_reg;
   
-  ram memory(MemRW, MemD, MemQ, MemAddr);
+  ram ram_ins(MemRW, MemD, MemQ, MemAddr);
   datapath data(clk,rst,muxPC, muxMAR, muxACC,loadMAR,loadPC,loadACC,loadMDR,
             loadIR,opALU,zflag,opcode,MemAddr,MemD,MemQ, div_out, isDivide, 
             ACC_reg, MDR_reg);
@@ -41,13 +39,12 @@ module ram(we, d, q, addr);
   input [15:0] d;
   output reg [15:0] q;
   input [7:0] addr;
-  reg [15:0] MEM [0:16383];
+  reg [15:0] mem256x16 [0:255];
   
-  always@ (addr) begin
+  always@ (*) begin
+	q <= mem256x16[addr];
     if(we) begin
-      MEM[addr] <= d;
-    end else begin
-      q <= MEM[addr];
+      mem256x16[addr] <= d;
     end
   end
 endmodule
@@ -104,25 +101,6 @@ MDR_reg, MDR_next, MAR_reg, MAR_next, Zflag_reg, zflag_next);
 endmodule
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-  
 module my8bitdivider(output reg [15:0] Q,R, output reg Done, input [15:0] A, B, 
                     input Load,Clk,Reset);
 //  parameter default=3'bxx;
@@ -203,3 +181,27 @@ module my8bitdivider(output reg [15:0] Q,R, output reg Done, input [15:0] A, B,
     endcase
   end
 endmodule
+
+module proj1_tb();
+reg clk, rst;
+wire MemRW_IO;
+wire [7:0] MemAddr_IO;
+wire [15:0] MemD_IO;
+
+
+proj1 dut(clk, rst, MemRW_IO, MemAddr_IO, MemD_IO);
+
+always
+#5 clk = !clk;
+initial begin
+clk=1'b0;
+rst=1'b1;
+$readmemh("memory.list", proj1_tb.dut.ram_ins.mem256x16);
+#20 rst=1'b0;
+#40000 //might need to be very large
+$display("Final value\n");
+$display("0x000e %d\n",proj1_tb.dut.ram_ins.mem256x16[16'h000e]);
+$finish;
+end
+endmodule
+

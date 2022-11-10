@@ -16,7 +16,7 @@ loadIR,opALU,zflag,opcode,MemAddr,MemD,MemQ, div_out, isDivide, ACC_reg, MDR_reg
   input loadMDR;
   input loadIR;
   input [1:0] opALU;
-  output zflag;
+  output reg zflag;
   output reg [7:0]opcode;
   
   output reg [7:0]MemAddr;
@@ -50,20 +50,22 @@ loadIR,opALU,zflag,opcode,MemAddr,MemD,MemQ, div_out, isDivide, ACC_reg, MDR_reg
 
  
   always @ (*) begin
-    if(loadPC) PC_next = PC_reg + 1;
-    if(loadIR) IR_next = MDR_reg;     //???
+    PC_next = (loadPC) ? ((muxPC) ?  IR_reg[15:8]:PC_reg) : 0;
+    IR_next = (loadIR) ? MDR_reg : 0;     //???
 
-    if(loadACC == 1) ACC_next = (muxACC) ? ALU_out: MDR_reg;
+    //if(loadACC == 1) ACC_next = (muxACC) ? ALU_out: MDR_reg;
 
-    ACC_next = (loadACC) ? ((isDivide) ? ALU_out : div_out) : MDR_reg; 
+    ACC_next = loadACC ? ((muxACC) ? MDR_reg:((isDivide) ? ALU_out : div_out)):ACC_reg;
 	
+    MDR_next = (loadMDR) ? MemQ: 0;      //???
 	
-	
-    if(loadMDR) MDR_next = MemQ;      //???
-    MAR_next = (loadMAR) ? PC_reg : IR_reg[15:8];
+    MAR_next = loadMAR ? ((muxMAR) ? IR_reg[15:8]:PC_reg) : 0;
     
     zflag_next = (ACC_reg==0) ? 1:0;
+	zflag = (ACC_reg==0) ? 1:0;
+	
     opcode = IR_reg[7:0];
+	
     MemAddr = MAR_reg;
     MemD = ACC_reg;
   
