@@ -1,0 +1,726 @@
+Analysis & Synthesis report for proj1
+Thu Nov 10 16:42:07 2022
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |proj1|ctr:controller|state
+  9. State Machine - |proj1|ctr:controller|my8bitdivider:div_bitch|state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: ctr:controller|my8bitdivider:div_bitch
+ 15. Port Connectivity Checks: "ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0"
+ 16. Port Connectivity Checks: "ctr:controller|my8bitdivider:div_bitch"
+ 17. Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|muxor:O1|my1bitmux:mux4"
+ 18. Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1"
+ 19. Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2"
+ 20. Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n0|my1bitmux:mux5"
+ 21. Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi"
+ 22. Port Connectivity Checks: "datapath:data|registers:regs"
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Nov 10 16:42:07 2022      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; proj1                                      ;
+; Top-level Entity Name              ; proj1                                      ;
+; Family                             ; Cyclone IV GX                              ;
+; Total logic elements               ; 0                                          ;
+;     Total combinational functions  ; 0                                          ;
+;     Dedicated logic registers      ; 0                                          ;
+; Total registers                    ; 0                                          ;
+; Total pins                         ; 27                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total GXB Receiver Channel PCS     ; 0                                          ;
+; Total GXB Receiver Channel PMA     ; 0                                          ;
+; Total GXB Transmitter Channel PCS  ; 0                                          ;
+; Total GXB Transmitter Channel PMA  ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CGX30CF23C6     ;                    ;
+; Top-level entity name                                                      ; proj1              ; proj1              ;
+; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                           ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------+---------+
+; proj1.v                          ; yes             ; User Verilog HDL File        ; C:/Users/Calvin/Documents/ECE310/Project 1/proj1.v     ;         ;
+; datapath.v                       ; yes             ; User Verilog HDL File        ; C:/Users/Calvin/Documents/ECE310/Project 1/datapath.v  ;         ;
+; ctr.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Calvin/Documents/ECE310/Project 1/ctr.v       ;         ;
+; alu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Calvin/Documents/ECE310/Project 1/alu.v       ;         ;
+; memory.list                      ; yes             ; Auto-Found Unspecified File  ; C:/Users/Calvin/Documents/ECE310/Project 1/memory.list ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 27               ;
+; DSP block 9-bit elements ; 0                ;
+; Maximum fan-out node     ; MemRW_IO~output  ;
+; Maximum fan-out          ; 1                ;
+; Total fan-out            ; 27               ;
+; Average fan-out          ; 0.50             ;
++--------------------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; |proj1                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 27   ; 0            ; |proj1              ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |proj1|ctr:controller|state                                                                                                                                                                                                               ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; Name        ; state.01111 ; state.01110 ; state.01101 ; state.01100 ; state.01011 ; state.01010 ; state.01001 ; state.01000 ; state.00111 ; state.00110 ; state.00101 ; state.00100 ; state.00011 ; state.00010 ; state.00001 ; state.00000 ; state.10000 ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; state.00000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ;
+; state.00001 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ; 0           ;
+; state.00010 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 1           ; 0           ;
+; state.00011 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 1           ; 0           ;
+; state.00100 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.00101 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.00110 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.00111 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01001 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01010 ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01011 ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01100 ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01101 ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01110 ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.01111 ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ;
+; state.10000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------+
+; State Machine - |proj1|ctr:controller|my8bitdivider:div_bitch|state        ;
++----------+----------+----------+----------+----------+----------+----------+
+; Name     ; state.S5 ; state.S4 ; state.S3 ; state.S2 ; state.S1 ; state.S0 ;
++----------+----------+----------+----------+----------+----------+----------+
+; state.S0 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; state.S1 ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ;
+; state.S2 ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ;
+; state.S3 ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ;
+; state.S4 ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ;
+; state.S5 ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+----------+----------+
+
+
++----------------------------------------------------------------------+
+; Registers Removed During Synthesis                                   ;
++-------------------------------------------------+--------------------+
+; Register name                                   ; Reason for Removal ;
++-------------------------------------------------+--------------------+
+; ctr:controller|state~2                          ; Lost fanout        ;
+; ctr:controller|state~3                          ; Lost fanout        ;
+; ctr:controller|state~4                          ; Lost fanout        ;
+; ctr:controller|state~5                          ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state~4  ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state~5  ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state~6  ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[0..7]       ; Lost fanout        ;
+; datapath:data|registers:regs|MDR_reg[0..15]     ; Lost fanout        ;
+; datapath:data|registers:regs|ACC_reg[0..15]     ; Lost fanout        ;
+; datapath:data|registers:regs|MAR_reg[0..7]      ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[0]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[8]          ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[1]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[9]          ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[2]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[10]         ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[3]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[11]         ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[4]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[12]         ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[5]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[13]         ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[6]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[14]         ; Lost fanout        ;
+; datapath:data|registers:regs|PC_reg[7]          ; Lost fanout        ;
+; datapath:data|registers:regs|IR_reg[15]         ; Lost fanout        ;
+; ctr:controller|state.10000                      ; Lost fanout        ;
+; ctr:controller|state.00000                      ; Lost fanout        ;
+; ctr:controller|state.00001                      ; Lost fanout        ;
+; ctr:controller|state.00010                      ; Lost fanout        ;
+; ctr:controller|state.00011                      ; Lost fanout        ;
+; ctr:controller|state.00100                      ; Lost fanout        ;
+; ctr:controller|state.00101                      ; Lost fanout        ;
+; ctr:controller|state.00110                      ; Lost fanout        ;
+; ctr:controller|state.00111                      ; Lost fanout        ;
+; ctr:controller|state.01000                      ; Lost fanout        ;
+; ctr:controller|state.01001                      ; Lost fanout        ;
+; ctr:controller|state.01010                      ; Lost fanout        ;
+; ctr:controller|state.01011                      ; Lost fanout        ;
+; ctr:controller|state.01100                      ; Lost fanout        ;
+; ctr:controller|state.01101                      ; Lost fanout        ;
+; ctr:controller|state.01110                      ; Lost fanout        ;
+; ctr:controller|state.01111                      ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state.S0 ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state.S1 ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state.S2 ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state.S3 ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state.S4 ; Lost fanout        ;
+; ctr:controller|my8bitdivider:div_bitch|state.S5 ; Lost fanout        ;
+; Total Number of Removed Registers = 94          ;                    ;
++-------------------------------------------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                               ;
++------------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; Register name                                  ; Reason for Removal ; Registers Removed due to This Register                                              ;
++------------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; ctr:controller|my8bitdivider:div_bitch|state~4 ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[15], datapath:data|registers:regs|MDR_reg[14], ;
+;                                                ;                    ; datapath:data|registers:regs|MDR_reg[13], datapath:data|registers:regs|ACC_reg[6],  ;
+;                                                ;                    ; datapath:data|registers:regs|ACC_reg[5], datapath:data|registers:regs|ACC_reg[4],   ;
+;                                                ;                    ; datapath:data|registers:regs|ACC_reg[3], datapath:data|registers:regs|ACC_reg[2],   ;
+;                                                ;                    ; datapath:data|registers:regs|ACC_reg[1], datapath:data|registers:regs|ACC_reg[0],   ;
+;                                                ;                    ; ctr:controller|state.00001, ctr:controller|state.00100, ctr:controller|state.00110, ;
+;                                                ;                    ; ctr:controller|state.01101, ctr:controller|my8bitdivider:div_bitch|state.S1,        ;
+;                                                ;                    ; ctr:controller|my8bitdivider:div_bitch|state.S2,                                    ;
+;                                                ;                    ; ctr:controller|my8bitdivider:div_bitch|state.S4                                     ;
+; datapath:data|registers:regs|ACC_reg[15]       ; Lost Fanouts       ; datapath:data|registers:regs|ACC_reg[7], ctr:controller|state.10000,                ;
+;                                                ;                    ; ctr:controller|state.00101, ctr:controller|state.00111, ctr:controller|state.01001, ;
+;                                                ;                    ; ctr:controller|state.01111                                                          ;
+; datapath:data|registers:regs|MAR_reg[0]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[0], datapath:data|registers:regs|IR_reg[8],     ;
+;                                                ;                    ; ctr:controller|state.00000, ctr:controller|state.00011, ctr:controller|state.01011  ;
+; ctr:controller|state~2                         ; Lost Fanouts       ; ctr:controller|state.01000, ctr:controller|state.01100, ctr:controller|state.01110  ;
+; datapath:data|registers:regs|IR_reg[0]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[0], ctr:controller|state.00010                 ;
+; datapath:data|registers:regs|MAR_reg[1]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[1], datapath:data|registers:regs|IR_reg[9]      ;
+; datapath:data|registers:regs|MAR_reg[2]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[2], datapath:data|registers:regs|IR_reg[10]     ;
+; datapath:data|registers:regs|MAR_reg[3]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[3], datapath:data|registers:regs|IR_reg[11]     ;
+; datapath:data|registers:regs|MAR_reg[4]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[4], datapath:data|registers:regs|IR_reg[12]     ;
+; datapath:data|registers:regs|MAR_reg[5]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[5], datapath:data|registers:regs|IR_reg[13]     ;
+; datapath:data|registers:regs|MAR_reg[6]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[6], datapath:data|registers:regs|IR_reg[14]     ;
+; datapath:data|registers:regs|MAR_reg[7]        ; Lost Fanouts       ; datapath:data|registers:regs|PC_reg[7], datapath:data|registers:regs|IR_reg[15]     ;
+; ctr:controller|my8bitdivider:div_bitch|state~6 ; Lost Fanouts       ; ctr:controller|my8bitdivider:div_bitch|state.S3                                     ;
+; datapath:data|registers:regs|IR_reg[1]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[1]                                             ;
+; datapath:data|registers:regs|IR_reg[2]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[2]                                             ;
+; datapath:data|registers:regs|IR_reg[3]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[3]                                             ;
+; datapath:data|registers:regs|IR_reg[4]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[4]                                             ;
+; datapath:data|registers:regs|IR_reg[5]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[5]                                             ;
+; datapath:data|registers:regs|IR_reg[6]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[6]                                             ;
+; datapath:data|registers:regs|IR_reg[7]         ; Lost Fanouts       ; datapath:data|registers:regs|MDR_reg[7]                                             ;
++------------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |proj1|datapath:data|registers:regs|IR_reg[5]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |proj1|datapath:data|registers:regs|MDR_reg[10] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |proj1|datapath:data|registers:regs|PC_reg[7]   ;
+; 7:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |proj1|datapath:data|registers:regs|ACC_reg[3]  ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 2 LEs                ; 8 LEs                  ; No         ; |proj1|ctr:controller|next_state.00100          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ctr:controller|my8bitdivider:div_bitch ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; S0             ; 000   ; Unsigned Binary                                            ;
+; S1             ; 001   ; Unsigned Binary                                            ;
+; S2             ; 010   ; Unsigned Binary                                            ;
+; S3             ; 011   ; Unsigned Binary                                            ;
+; S4             ; 100   ; Unsigned Binary                                            ;
+; S5             ; 101   ; Unsigned Binary                                            ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0"                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ctr:controller|my8bitdivider:div_bitch"                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; R    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|muxor:O1|my1bitmux:mux4" ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                   ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; i1   ; Input ; Info     ; Stuck at VCC                                                                                                                              ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1" ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                       ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; i0   ; Input ; Info     ; Stuck at GND                                                                                                                                                  ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2" ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                       ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; i0   ; Input ; Info     ; Stuck at VCC                                                                                                                                                  ;
+; i1   ; Input ; Info     ; Stuck at GND                                                                                                                                                  ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n0|my1bitmux:mux5" ;
++------+-------+----------+---------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                         ;
++------+-------+----------+---------------------------------------------------------------------------------+
+; i0   ; Input ; Info     ; Stuck at VCC                                                                    ;
+; i1   ; Input ; Info     ; Stuck at GND                                                                    ;
++------+-------+----------+---------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi"                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|registers:regs"                                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Zflag_reg ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Thu Nov 10 16:42:01 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proj1 -c proj1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 5 design units, including 5 entities, in source file proj1.v
+    Info (12023): Found entity 1: proj1
+    Info (12023): Found entity 2: ram
+    Info (12023): Found entity 3: registers
+    Info (12023): Found entity 4: my8bitdivider
+    Info (12023): Found entity 5: proj1_tb
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+    Info (12023): Found entity 1: datapath
+Info (12021): Found 1 design units, including 1 entities, in source file ctr.v
+    Info (12023): Found entity 1: ctr
+Info (12021): Found 17 design units, including 17 entities, in source file alu.v
+    Info (12023): Found entity 1: alu
+    Info (12023): Found entity 2: my1bitmux
+    Info (12023): Found entity 3: muxand
+    Info (12023): Found entity 4: muxxor
+    Info (12023): Found entity 5: muxor
+    Info (12023): Found entity 6: muxxor16
+    Info (12023): Found entity 7: muxor16
+    Info (12023): Found entity 8: muxnot
+    Info (12023): Found entity 9: my1bithalfadder
+    Info (12023): Found entity 10: my1bitfulladder
+    Info (12023): Found entity 11: my8bitfulladder
+    Info (12023): Found entity 12: my16bitfulladder
+    Info (12023): Found entity 13: my8bitmux
+    Info (12023): Found entity 14: my16bitmux
+    Info (12023): Found entity 15: my8bitaddsub_gate
+    Info (12023): Found entity 16: my16bitaddsub_gate
+    Info (12023): Found entity 17: multiply
+Info (12127): Elaborating entity "proj1" for the top level hierarchy
+Warning (10034): Output port "MemAddr_IO" at proj1.v(10) has no driver
+Warning (10034): Output port "MemD_IO" at proj1.v(11) has no driver
+Warning (10034): Output port "MemRW_IO" at proj1.v(9) has no driver
+Info (12128): Elaborating entity "ram" for hierarchy "ram:ram_ins"
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:data"
+Warning (10230): Verilog HDL assignment warning at datapath.v(53): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at datapath.v(64): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at datapath.v(65): truncated value with size 32 to match size of target (1)
+Warning (10240): Verilog HDL Always Construct warning at datapath.v(53): inferring latch(es) for variable "MAR_next", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "MAR_next[0]" at datapath.v(53)
+Info (10041): Inferred latch for "MAR_next[1]" at datapath.v(53)
+Info (10041): Inferred latch for "MAR_next[2]" at datapath.v(53)
+Info (10041): Inferred latch for "MAR_next[3]" at datapath.v(53)
+Info (10041): Inferred latch for "MAR_next[4]" at datapath.v(53)
+Info (10041): Inferred latch for "MAR_next[5]" at datapath.v(53)
+Info (10041): Inferred latch for "MAR_next[6]" at datapath.v(53)
+Info (10041): Inferred latch for "MAR_next[7]" at datapath.v(53)
+Info (12128): Elaborating entity "registers" for hierarchy "datapath:data|registers:regs"
+Warning (10034): Output port "Zflag_reg" at proj1.v(80) has no driver
+Info (12128): Elaborating entity "alu" for hierarchy "datapath:data|alu:arith"
+Info (12128): Elaborating entity "my16bitaddsub_gate" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi"
+Info (12128): Elaborating entity "muxnot" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n0"
+Info (12128): Elaborating entity "my1bitmux" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n0|my1bitmux:mux5"
+Info (12128): Elaborating entity "my16bitmux" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0"
+Info (12128): Elaborating entity "my8bitmux" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100"
+Info (12128): Elaborating entity "my16bitfulladder" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0"
+Info (12128): Elaborating entity "my8bitfulladder" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1"
+Info (12128): Elaborating entity "my1bitfulladder" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0"
+Info (12128): Elaborating entity "my1bithalfadder" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0"
+Info (12128): Elaborating entity "muxxor" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1"
+Info (12128): Elaborating entity "muxand" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1"
+Info (12128): Elaborating entity "muxor" for hierarchy "datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|muxor:O1"
+Info (12128): Elaborating entity "muxxor16" for hierarchy "datapath:data|alu:arith|muxxor16:muxy_boi"
+Info (12128): Elaborating entity "multiply" for hierarchy "datapath:data|alu:arith|multiply:multy_boi"
+Info (12128): Elaborating entity "ctr" for hierarchy "ctr:controller"
+Warning (10230): Verilog HDL assignment warning at ctr.v(44): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(45): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(46): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(47): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(48): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(50): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(53): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(56): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(57): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(59): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(61): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ctr.v(63): truncated value with size 32 to match size of target (2)
+Warning (10240): Verilog HDL Always Construct warning at ctr.v(44): inferring latch(es) for variable "next_state", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "next_state.10000" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01111" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01110" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01101" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01100" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01011" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01010" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01001" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.01000" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00111" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00110" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00101" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00100" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00011" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00010" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00001" at ctr.v(44)
+Info (10041): Inferred latch for "next_state.00000" at ctr.v(44)
+Info (12128): Elaborating entity "my8bitdivider" for hierarchy "ctr:controller|my8bitdivider:div_bitch"
+Warning (10036): Verilog HDL or VHDL warning at proj1.v(201): object "unused" assigned a value but never read
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(217): variable "A" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(217): variable "B" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(222): variable "R" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(222): variable "B_reg" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(226): variable "R" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(226): variable "B_reg" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(228): variable "O_temp" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(228): variable "C_out" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(228): variable "Q" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(230): variable "O_temp" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at proj1.v(230): variable "C_out" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "A_reg", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "B_reg", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "R", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "Q", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "Done", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "A_temp", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "B_temp", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at proj1.v(213): inferring latch(es) for variable "S", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "S" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[0]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[1]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[2]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[3]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[4]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[5]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[6]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[7]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[8]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[9]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[10]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[11]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[12]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[13]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[14]" at proj1.v(213)
+Info (10041): Inferred latch for "B_temp[15]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[0]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[1]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[2]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[3]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[4]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[5]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[6]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[7]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[8]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[9]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[10]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[11]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[12]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[13]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[14]" at proj1.v(213)
+Info (10041): Inferred latch for "A_temp[15]" at proj1.v(213)
+Info (10041): Inferred latch for "Done" at proj1.v(213)
+Info (10041): Inferred latch for "Q[0]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[1]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[2]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[3]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[4]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[5]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[6]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[7]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[8]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[9]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[10]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[11]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[12]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[13]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[14]" at proj1.v(213)
+Info (10041): Inferred latch for "Q[15]" at proj1.v(213)
+Info (10041): Inferred latch for "R[0]" at proj1.v(213)
+Info (10041): Inferred latch for "R[1]" at proj1.v(213)
+Info (10041): Inferred latch for "R[2]" at proj1.v(213)
+Info (10041): Inferred latch for "R[3]" at proj1.v(213)
+Info (10041): Inferred latch for "R[4]" at proj1.v(213)
+Info (10041): Inferred latch for "R[5]" at proj1.v(213)
+Info (10041): Inferred latch for "R[6]" at proj1.v(213)
+Info (10041): Inferred latch for "R[7]" at proj1.v(213)
+Info (10041): Inferred latch for "R[8]" at proj1.v(213)
+Info (10041): Inferred latch for "R[9]" at proj1.v(213)
+Info (10041): Inferred latch for "R[10]" at proj1.v(213)
+Info (10041): Inferred latch for "R[11]" at proj1.v(213)
+Info (10041): Inferred latch for "R[12]" at proj1.v(213)
+Info (10041): Inferred latch for "R[13]" at proj1.v(213)
+Info (10041): Inferred latch for "R[14]" at proj1.v(213)
+Info (10041): Inferred latch for "R[15]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[0]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[1]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[2]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[3]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[4]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[5]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[6]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[7]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[8]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[9]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[10]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[11]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[12]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[13]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[14]" at proj1.v(213)
+Info (10041): Inferred latch for "B_reg[15]" at proj1.v(213)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "MemRW_IO" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[0]" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[1]" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[2]" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[3]" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[4]" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[5]" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[6]" is stuck at GND
+    Warning (13410): Pin "MemAddr_IO[7]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[0]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[1]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[2]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[3]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[4]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[5]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[6]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[7]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[8]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[9]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[10]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[11]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[12]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[13]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[14]" is stuck at GND
+    Warning (13410): Pin "MemD_IO[15]" is stuck at GND
+Info (17049): 94 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rst"
+    Warning (15610): No output dependent on input pin "clk"
+Info (21057): Implemented 27 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 25 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 71 warnings
+    Info: Peak virtual memory: 4683 megabytes
+    Info: Processing ended: Thu Nov 10 16:42:07 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
+
+

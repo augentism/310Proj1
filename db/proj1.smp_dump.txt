@@ -1,0 +1,29 @@
+
+State Machine - |proj1|ctr:controller|state
+Name state.01111 state.01110 state.01101 state.01100 state.01011 state.01010 state.01001 state.01000 state.00111 state.00110 state.00101 state.00100 state.00011 state.00010 state.00001 state.00000 state.10000 
+state.00000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.00001 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 
+state.00010 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 
+state.00011 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 
+state.00100 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 
+state.00101 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 
+state.00110 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 
+state.00111 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 
+state.01000 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 
+state.01001 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 
+state.01010 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 
+state.01011 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 
+state.01100 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.01101 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.01110 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.01111 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.10000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+
+State Machine - |proj1|ctr:controller|my8bitdivider:div_bitch|state
+Name state.S5 state.S4 state.S3 state.S2 state.S1 state.S0 
+state.S0 0 0 0 0 0 0 
+state.S1 0 0 0 0 1 1 
+state.S2 0 0 0 1 0 1 
+state.S3 0 0 1 0 0 1 
+state.S4 0 1 0 0 0 1 
+state.S5 1 0 0 0 0 1 

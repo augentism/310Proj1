@@ -1,0 +1,6001 @@
+|proj1
+clk => clk.IN2
+rst => rst.IN2
+MemRW_IO << <GND>
+MemAddr_IO[0] << <GND>
+MemAddr_IO[1] << <GND>
+MemAddr_IO[2] << <GND>
+MemAddr_IO[3] << <GND>
+MemAddr_IO[4] << <GND>
+MemAddr_IO[5] << <GND>
+MemAddr_IO[6] << <GND>
+MemAddr_IO[7] << <GND>
+MemD_IO[0] << <GND>
+MemD_IO[1] << <GND>
+MemD_IO[2] << <GND>
+MemD_IO[3] << <GND>
+MemD_IO[4] << <GND>
+MemD_IO[5] << <GND>
+MemD_IO[6] << <GND>
+MemD_IO[7] << <GND>
+MemD_IO[8] << <GND>
+MemD_IO[9] << <GND>
+MemD_IO[10] << <GND>
+MemD_IO[11] << <GND>
+MemD_IO[12] << <GND>
+MemD_IO[13] << <GND>
+MemD_IO[14] << <GND>
+MemD_IO[15] << <GND>
+
+
+|proj1|ram:ram_ins
+we => mem256x16.WE
+d[0] => mem256x16.DATAIN
+d[1] => mem256x16.DATAIN1
+d[2] => mem256x16.DATAIN2
+d[3] => mem256x16.DATAIN3
+d[4] => mem256x16.DATAIN4
+d[5] => mem256x16.DATAIN5
+d[6] => mem256x16.DATAIN6
+d[7] => mem256x16.DATAIN7
+d[8] => mem256x16.DATAIN8
+d[9] => mem256x16.DATAIN9
+d[10] => mem256x16.DATAIN10
+d[11] => mem256x16.DATAIN11
+d[12] => mem256x16.DATAIN12
+d[13] => mem256x16.DATAIN13
+d[14] => mem256x16.DATAIN14
+d[15] => mem256x16.DATAIN15
+q[0] <= mem256x16.DATAOUT
+q[1] <= mem256x16.DATAOUT1
+q[2] <= mem256x16.DATAOUT2
+q[3] <= mem256x16.DATAOUT3
+q[4] <= mem256x16.DATAOUT4
+q[5] <= mem256x16.DATAOUT5
+q[6] <= mem256x16.DATAOUT6
+q[7] <= mem256x16.DATAOUT7
+q[8] <= mem256x16.DATAOUT8
+q[9] <= mem256x16.DATAOUT9
+q[10] <= mem256x16.DATAOUT10
+q[11] <= mem256x16.DATAOUT11
+q[12] <= mem256x16.DATAOUT12
+q[13] <= mem256x16.DATAOUT13
+q[14] <= mem256x16.DATAOUT14
+q[15] <= mem256x16.DATAOUT15
+addr[0] => mem256x16.RADDR
+addr[0] => mem256x16.WADDR
+addr[1] => mem256x16.RADDR1
+addr[1] => mem256x16.WADDR1
+addr[2] => mem256x16.RADDR2
+addr[2] => mem256x16.WADDR2
+addr[3] => mem256x16.RADDR3
+addr[3] => mem256x16.WADDR3
+addr[4] => mem256x16.RADDR4
+addr[4] => mem256x16.WADDR4
+addr[5] => mem256x16.RADDR5
+addr[5] => mem256x16.WADDR5
+addr[6] => mem256x16.RADDR6
+addr[6] => mem256x16.WADDR6
+addr[7] => mem256x16.RADDR7
+addr[7] => mem256x16.WADDR7
+
+
+|proj1|datapath:data
+clk => clk.IN1
+rst => rst.IN1
+muxPC => PC_next.OUTPUTSELECT
+muxPC => PC_next.OUTPUTSELECT
+muxPC => PC_next.OUTPUTSELECT
+muxPC => PC_next.OUTPUTSELECT
+muxPC => PC_next.OUTPUTSELECT
+muxPC => PC_next.OUTPUTSELECT
+muxPC => PC_next.OUTPUTSELECT
+muxPC => PC_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxMAR => MAR_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+muxACC => ACC_next.OUTPUTSELECT
+loadMAR => MAR_next[0].LATCH_ENABLE
+loadMAR => MAR_next[1].LATCH_ENABLE
+loadMAR => MAR_next[2].LATCH_ENABLE
+loadMAR => MAR_next[3].LATCH_ENABLE
+loadMAR => MAR_next[4].LATCH_ENABLE
+loadMAR => MAR_next[5].LATCH_ENABLE
+loadMAR => MAR_next[6].LATCH_ENABLE
+loadMAR => MAR_next[7].LATCH_ENABLE
+loadPC => PC_next.OUTPUTSELECT
+loadPC => PC_next.OUTPUTSELECT
+loadPC => PC_next.OUTPUTSELECT
+loadPC => PC_next.OUTPUTSELECT
+loadPC => PC_next.OUTPUTSELECT
+loadPC => PC_next.OUTPUTSELECT
+loadPC => PC_next.OUTPUTSELECT
+loadPC => PC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadACC => ACC_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadMDR => MDR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+loadIR => IR_next.OUTPUTSELECT
+opALU[0] => opALU[0].IN1
+opALU[1] => opALU[1].IN1
+zflag <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+opcode[0] <= registers:regs.port4
+opcode[1] <= registers:regs.port4
+opcode[2] <= registers:regs.port4
+opcode[3] <= registers:regs.port4
+opcode[4] <= registers:regs.port4
+opcode[5] <= registers:regs.port4
+opcode[6] <= registers:regs.port4
+opcode[7] <= registers:regs.port4
+MemAddr[0] <= registers:regs.port10
+MemAddr[1] <= registers:regs.port10
+MemAddr[2] <= registers:regs.port10
+MemAddr[3] <= registers:regs.port10
+MemAddr[4] <= registers:regs.port10
+MemAddr[5] <= registers:regs.port10
+MemAddr[6] <= registers:regs.port10
+MemAddr[7] <= registers:regs.port10
+MemD[0] <= ACC_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+MemD[1] <= ACC_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+MemD[2] <= ACC_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+MemD[3] <= ACC_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+MemD[4] <= ACC_reg[4].DB_MAX_OUTPUT_PORT_TYPE
+MemD[5] <= ACC_reg[5].DB_MAX_OUTPUT_PORT_TYPE
+MemD[6] <= ACC_reg[6].DB_MAX_OUTPUT_PORT_TYPE
+MemD[7] <= ACC_reg[7].DB_MAX_OUTPUT_PORT_TYPE
+MemD[8] <= ACC_reg[8].DB_MAX_OUTPUT_PORT_TYPE
+MemD[9] <= ACC_reg[9].DB_MAX_OUTPUT_PORT_TYPE
+MemD[10] <= ACC_reg[10].DB_MAX_OUTPUT_PORT_TYPE
+MemD[11] <= ACC_reg[11].DB_MAX_OUTPUT_PORT_TYPE
+MemD[12] <= ACC_reg[12].DB_MAX_OUTPUT_PORT_TYPE
+MemD[13] <= ACC_reg[13].DB_MAX_OUTPUT_PORT_TYPE
+MemD[14] <= ACC_reg[14].DB_MAX_OUTPUT_PORT_TYPE
+MemD[15] <= ACC_reg[15].DB_MAX_OUTPUT_PORT_TYPE
+MemQ[0] => MDR_next.DATAB
+MemQ[1] => MDR_next.DATAB
+MemQ[2] => MDR_next.DATAB
+MemQ[3] => MDR_next.DATAB
+MemQ[4] => MDR_next.DATAB
+MemQ[5] => MDR_next.DATAB
+MemQ[6] => MDR_next.DATAB
+MemQ[7] => MDR_next.DATAB
+MemQ[8] => MDR_next.DATAB
+MemQ[9] => MDR_next.DATAB
+MemQ[10] => MDR_next.DATAB
+MemQ[11] => MDR_next.DATAB
+MemQ[12] => MDR_next.DATAB
+MemQ[13] => MDR_next.DATAB
+MemQ[14] => MDR_next.DATAB
+MemQ[15] => MDR_next.DATAB
+div_out[0] => ACC_next.DATAB
+div_out[1] => ACC_next.DATAB
+div_out[2] => ACC_next.DATAB
+div_out[3] => ACC_next.DATAB
+div_out[4] => ACC_next.DATAB
+div_out[5] => ACC_next.DATAB
+div_out[6] => ACC_next.DATAB
+div_out[7] => ACC_next.DATAB
+div_out[8] => ACC_next.DATAB
+div_out[9] => ACC_next.DATAB
+div_out[10] => ACC_next.DATAB
+div_out[11] => ACC_next.DATAB
+div_out[12] => ACC_next.DATAB
+div_out[13] => ACC_next.DATAB
+div_out[14] => ACC_next.DATAB
+div_out[15] => ACC_next.DATAB
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+isDivide => ACC_next.OUTPUTSELECT
+ACC_reg[0] <= ACC_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[1] <= ACC_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[2] <= ACC_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[3] <= ACC_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[4] <= ACC_reg[4].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[5] <= ACC_reg[5].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[6] <= ACC_reg[6].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[7] <= ACC_reg[7].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[8] <= ACC_reg[8].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[9] <= ACC_reg[9].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[10] <= ACC_reg[10].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[11] <= ACC_reg[11].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[12] <= ACC_reg[12].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[13] <= ACC_reg[13].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[14] <= ACC_reg[14].DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[15] <= ACC_reg[15].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[0] <= MDR_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[1] <= MDR_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[2] <= MDR_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[3] <= MDR_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[4] <= MDR_reg[4].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[5] <= MDR_reg[5].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[6] <= MDR_reg[6].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[7] <= MDR_reg[7].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[8] <= MDR_reg[8].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[9] <= MDR_reg[9].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[10] <= MDR_reg[10].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[11] <= MDR_reg[11].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[12] <= MDR_reg[12].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[13] <= MDR_reg[13].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[14] <= MDR_reg[14].DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[15] <= MDR_reg[15].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|proj1|datapath:data|registers:regs
+clk => MAR_reg[0]~reg0.CLK
+clk => MAR_reg[1]~reg0.CLK
+clk => MAR_reg[2]~reg0.CLK
+clk => MAR_reg[3]~reg0.CLK
+clk => MAR_reg[4]~reg0.CLK
+clk => MAR_reg[5]~reg0.CLK
+clk => MAR_reg[6]~reg0.CLK
+clk => MAR_reg[7]~reg0.CLK
+clk => MDR_reg[0]~reg0.CLK
+clk => MDR_reg[1]~reg0.CLK
+clk => MDR_reg[2]~reg0.CLK
+clk => MDR_reg[3]~reg0.CLK
+clk => MDR_reg[4]~reg0.CLK
+clk => MDR_reg[5]~reg0.CLK
+clk => MDR_reg[6]~reg0.CLK
+clk => MDR_reg[7]~reg0.CLK
+clk => MDR_reg[8]~reg0.CLK
+clk => MDR_reg[9]~reg0.CLK
+clk => MDR_reg[10]~reg0.CLK
+clk => MDR_reg[11]~reg0.CLK
+clk => MDR_reg[12]~reg0.CLK
+clk => MDR_reg[13]~reg0.CLK
+clk => MDR_reg[14]~reg0.CLK
+clk => MDR_reg[15]~reg0.CLK
+clk => ACC_reg[0]~reg0.CLK
+clk => ACC_reg[1]~reg0.CLK
+clk => ACC_reg[2]~reg0.CLK
+clk => ACC_reg[3]~reg0.CLK
+clk => ACC_reg[4]~reg0.CLK
+clk => ACC_reg[5]~reg0.CLK
+clk => ACC_reg[6]~reg0.CLK
+clk => ACC_reg[7]~reg0.CLK
+clk => ACC_reg[8]~reg0.CLK
+clk => ACC_reg[9]~reg0.CLK
+clk => ACC_reg[10]~reg0.CLK
+clk => ACC_reg[11]~reg0.CLK
+clk => ACC_reg[12]~reg0.CLK
+clk => ACC_reg[13]~reg0.CLK
+clk => ACC_reg[14]~reg0.CLK
+clk => ACC_reg[15]~reg0.CLK
+clk => IR_reg[0]~reg0.CLK
+clk => IR_reg[1]~reg0.CLK
+clk => IR_reg[2]~reg0.CLK
+clk => IR_reg[3]~reg0.CLK
+clk => IR_reg[4]~reg0.CLK
+clk => IR_reg[5]~reg0.CLK
+clk => IR_reg[6]~reg0.CLK
+clk => IR_reg[7]~reg0.CLK
+clk => IR_reg[8]~reg0.CLK
+clk => IR_reg[9]~reg0.CLK
+clk => IR_reg[10]~reg0.CLK
+clk => IR_reg[11]~reg0.CLK
+clk => IR_reg[12]~reg0.CLK
+clk => IR_reg[13]~reg0.CLK
+clk => IR_reg[14]~reg0.CLK
+clk => IR_reg[15]~reg0.CLK
+clk => PC_reg[0]~reg0.CLK
+clk => PC_reg[1]~reg0.CLK
+clk => PC_reg[2]~reg0.CLK
+clk => PC_reg[3]~reg0.CLK
+clk => PC_reg[4]~reg0.CLK
+clk => PC_reg[5]~reg0.CLK
+clk => PC_reg[6]~reg0.CLK
+clk => PC_reg[7]~reg0.CLK
+rst => Decoder0.IN0
+PC_reg[0] <= PC_reg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_reg[1] <= PC_reg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_reg[2] <= PC_reg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_reg[3] <= PC_reg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_reg[4] <= PC_reg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_reg[5] <= PC_reg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_reg[6] <= PC_reg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_reg[7] <= PC_reg[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC_next[0] => PC_reg.DATAA
+PC_next[1] => PC_reg.DATAA
+PC_next[2] => PC_reg.DATAA
+PC_next[3] => PC_reg.DATAA
+PC_next[4] => PC_reg.DATAA
+PC_next[5] => PC_reg.DATAA
+PC_next[6] => PC_reg.DATAA
+PC_next[7] => PC_reg.DATAA
+IR_reg[0] <= IR_reg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[1] <= IR_reg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[2] <= IR_reg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[3] <= IR_reg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[4] <= IR_reg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[5] <= IR_reg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[6] <= IR_reg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[7] <= IR_reg[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[8] <= IR_reg[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[9] <= IR_reg[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[10] <= IR_reg[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[11] <= IR_reg[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[12] <= IR_reg[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[13] <= IR_reg[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[14] <= IR_reg[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_reg[15] <= IR_reg[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+IR_next[0] => IR_reg.DATAA
+IR_next[1] => IR_reg.DATAA
+IR_next[2] => IR_reg.DATAA
+IR_next[3] => IR_reg.DATAA
+IR_next[4] => IR_reg.DATAA
+IR_next[5] => IR_reg.DATAA
+IR_next[6] => IR_reg.DATAA
+IR_next[7] => IR_reg.DATAA
+IR_next[8] => IR_reg.DATAA
+IR_next[9] => IR_reg.DATAA
+IR_next[10] => IR_reg.DATAA
+IR_next[11] => IR_reg.DATAA
+IR_next[12] => IR_reg.DATAA
+IR_next[13] => IR_reg.DATAA
+IR_next[14] => IR_reg.DATAA
+IR_next[15] => IR_reg.DATAA
+ACC_reg[0] <= ACC_reg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[1] <= ACC_reg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[2] <= ACC_reg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[3] <= ACC_reg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[4] <= ACC_reg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[5] <= ACC_reg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[6] <= ACC_reg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[7] <= ACC_reg[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[8] <= ACC_reg[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[9] <= ACC_reg[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[10] <= ACC_reg[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[11] <= ACC_reg[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[12] <= ACC_reg[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[13] <= ACC_reg[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[14] <= ACC_reg[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[15] <= ACC_reg[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ACC_next[0] => ACC_reg.DATAA
+ACC_next[1] => ACC_reg.DATAA
+ACC_next[2] => ACC_reg.DATAA
+ACC_next[3] => ACC_reg.DATAA
+ACC_next[4] => ACC_reg.DATAA
+ACC_next[5] => ACC_reg.DATAA
+ACC_next[6] => ACC_reg.DATAA
+ACC_next[7] => ACC_reg.DATAA
+ACC_next[8] => ACC_reg.DATAA
+ACC_next[9] => ACC_reg.DATAA
+ACC_next[10] => ACC_reg.DATAA
+ACC_next[11] => ACC_reg.DATAA
+ACC_next[12] => ACC_reg.DATAA
+ACC_next[13] => ACC_reg.DATAA
+ACC_next[14] => ACC_reg.DATAA
+ACC_next[15] => ACC_reg.DATAA
+MDR_reg[0] <= MDR_reg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[1] <= MDR_reg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[2] <= MDR_reg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[3] <= MDR_reg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[4] <= MDR_reg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[5] <= MDR_reg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[6] <= MDR_reg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[7] <= MDR_reg[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[8] <= MDR_reg[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[9] <= MDR_reg[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[10] <= MDR_reg[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[11] <= MDR_reg[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[12] <= MDR_reg[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[13] <= MDR_reg[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[14] <= MDR_reg[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_reg[15] <= MDR_reg[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MDR_next[0] => MDR_reg.DATAA
+MDR_next[1] => MDR_reg.DATAA
+MDR_next[2] => MDR_reg.DATAA
+MDR_next[3] => MDR_reg.DATAA
+MDR_next[4] => MDR_reg.DATAA
+MDR_next[5] => MDR_reg.DATAA
+MDR_next[6] => MDR_reg.DATAA
+MDR_next[7] => MDR_reg.DATAA
+MDR_next[8] => MDR_reg.DATAA
+MDR_next[9] => MDR_reg.DATAA
+MDR_next[10] => MDR_reg.DATAA
+MDR_next[11] => MDR_reg.DATAA
+MDR_next[12] => MDR_reg.DATAA
+MDR_next[13] => MDR_reg.DATAA
+MDR_next[14] => MDR_reg.DATAA
+MDR_next[15] => MDR_reg.DATAA
+MAR_reg[0] <= MAR_reg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_reg[1] <= MAR_reg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_reg[2] <= MAR_reg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_reg[3] <= MAR_reg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_reg[4] <= MAR_reg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_reg[5] <= MAR_reg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_reg[6] <= MAR_reg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_reg[7] <= MAR_reg[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+MAR_next[0] => MAR_reg.DATAA
+MAR_next[1] => MAR_reg.DATAA
+MAR_next[2] => MAR_reg.DATAA
+MAR_next[3] => MAR_reg.DATAA
+MAR_next[4] => MAR_reg.DATAA
+MAR_next[5] => MAR_reg.DATAA
+MAR_next[6] => MAR_reg.DATAA
+MAR_next[7] => MAR_reg.DATAA
+Zflag_reg <= <GND>
+zflag_next => ~NO_FANOUT~
+
+
+|proj1|datapath:data|alu:arith
+A[0] => A[0].IN3
+A[1] => A[1].IN3
+A[2] => A[2].IN3
+A[3] => A[3].IN3
+A[4] => A[4].IN3
+A[5] => A[5].IN3
+A[6] => A[6].IN3
+A[7] => A[7].IN3
+A[8] => A[8].IN2
+A[9] => A[9].IN2
+A[10] => A[10].IN2
+A[11] => A[11].IN2
+A[12] => A[12].IN2
+A[13] => A[13].IN2
+A[14] => A[14].IN2
+A[15] => A[15].IN2
+B[0] => B[0].IN3
+B[1] => B[1].IN3
+B[2] => B[2].IN3
+B[3] => B[3].IN3
+B[4] => B[4].IN3
+B[5] => B[5].IN3
+B[6] => B[6].IN3
+B[7] => B[7].IN3
+B[8] => B[8].IN2
+B[9] => B[9].IN2
+B[10] => B[10].IN2
+B[11] => B[11].IN2
+B[12] => B[12].IN2
+B[13] => B[13].IN2
+B[14] => B[14].IN2
+B[15] => B[15].IN2
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Rout.OUTPUTSELECT
+opALU[0] => Equal0.IN31
+opALU[1] => opALU[1].IN1
+Rout[0] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[1] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[2] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[3] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[4] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[5] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[6] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[7] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[8] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[9] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[10] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[11] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[12] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[13] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[14] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+Rout[15] <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi
+O[0] <= my16bitfulladder:fa0.port0
+O[1] <= my16bitfulladder:fa0.port0
+O[2] <= my16bitfulladder:fa0.port0
+O[3] <= my16bitfulladder:fa0.port0
+O[4] <= my16bitfulladder:fa0.port0
+O[5] <= my16bitfulladder:fa0.port0
+O[6] <= my16bitfulladder:fa0.port0
+O[7] <= my16bitfulladder:fa0.port0
+O[8] <= my16bitfulladder:fa0.port0
+O[9] <= my16bitfulladder:fa0.port0
+O[10] <= my16bitfulladder:fa0.port0
+O[11] <= my16bitfulladder:fa0.port0
+O[12] <= my16bitfulladder:fa0.port0
+O[13] <= my16bitfulladder:fa0.port0
+O[14] <= my16bitfulladder:fa0.port0
+O[15] <= my16bitfulladder:fa0.port0
+Cout <= my16bitfulladder:fa0.port1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN2
+B[1] => B[1].IN2
+B[2] => B[2].IN2
+B[3] => B[3].IN2
+B[4] => B[4].IN2
+B[5] => B[5].IN2
+B[6] => B[6].IN2
+B[7] => B[7].IN2
+B[8] => B[8].IN2
+B[9] => B[9].IN2
+B[10] => B[10].IN2
+B[11] => B[11].IN2
+B[12] => B[12].IN2
+B[13] => B[13].IN2
+B[14] => B[14].IN2
+B[15] => B[15].IN2
+S => S.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n0
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n0|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n1
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n1|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n2
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n2|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n3
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n3|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n4
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n4|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n5
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n5|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n6
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n6|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n7
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n7|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n8
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n8|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n9
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:n9|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nA
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nA|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nB
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nB|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nC
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nC|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nD
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nD|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nE
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nE|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nF
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|muxnot:nF|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0
+Out[0] <= my8bitmux:m000.port0
+Out[1] <= my8bitmux:m000.port0
+Out[2] <= my8bitmux:m000.port0
+Out[3] <= my8bitmux:m000.port0
+Out[4] <= my8bitmux:m000.port0
+Out[5] <= my8bitmux:m000.port0
+Out[6] <= my8bitmux:m000.port0
+Out[7] <= my8bitmux:m000.port0
+Out[8] <= my8bitmux:m100.port0
+Out[9] <= my8bitmux:m100.port0
+Out[10] <= my8bitmux:m100.port0
+Out[11] <= my8bitmux:m100.port0
+Out[12] <= my8bitmux:m100.port0
+Out[13] <= my8bitmux:m100.port0
+Out[14] <= my8bitmux:m100.port0
+Out[15] <= my8bitmux:m100.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+sel => sel.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100
+Out[0] <= my1bitmux:m0.port0
+Out[1] <= my1bitmux:m1.port0
+Out[2] <= my1bitmux:m2.port0
+Out[3] <= my1bitmux:m3.port0
+Out[4] <= my1bitmux:m4.port0
+Out[5] <= my1bitmux:m5.port0
+Out[6] <= my1bitmux:m6.port0
+Out[7] <= my1bitmux:m7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+sel => sel.IN8
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m7
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m6
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m100|my1bitmux:m0
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000
+Out[0] <= my1bitmux:m0.port0
+Out[1] <= my1bitmux:m1.port0
+Out[2] <= my1bitmux:m2.port0
+Out[3] <= my1bitmux:m3.port0
+Out[4] <= my1bitmux:m4.port0
+Out[5] <= my1bitmux:m5.port0
+Out[6] <= my1bitmux:m6.port0
+Out[7] <= my1bitmux:m7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+sel => sel.IN8
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m7
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m6
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitmux:m0|my8bitmux:m000|my1bitmux:m0
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0
+S[0] <= my8bitfulladder:a1.port0
+S[1] <= my8bitfulladder:a1.port0
+S[2] <= my8bitfulladder:a1.port0
+S[3] <= my8bitfulladder:a1.port0
+S[4] <= my8bitfulladder:a1.port0
+S[5] <= my8bitfulladder:a1.port0
+S[6] <= my8bitfulladder:a1.port0
+S[7] <= my8bitfulladder:a1.port0
+S[8] <= my8bitfulladder:a2.port0
+S[9] <= my8bitfulladder:a2.port0
+S[10] <= my8bitfulladder:a2.port0
+S[11] <= my8bitfulladder:a2.port0
+S[12] <= my8bitfulladder:a2.port0
+S[13] <= my8bitfulladder:a2.port0
+S[14] <= my8bitfulladder:a2.port0
+S[15] <= my8bitfulladder:a2.port0
+Cout <= my8bitfulladder:a2.port1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1
+S[0] <= my1bitfulladder:a0.port1
+S[1] <= my1bitfulladder:a1.port1
+S[2] <= my1bitfulladder:a2.port1
+S[3] <= my1bitfulladder:a3.port1
+S[4] <= my1bitfulladder:a4.port1
+S[5] <= my1bitfulladder:a5.port1
+S[6] <= my1bitfulladder:a6.port1
+S[7] <= my1bitfulladder:a7.port1
+Cout <= my1bitfulladder:a7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2
+S[0] <= my1bitfulladder:a0.port1
+S[1] <= my1bitfulladder:a1.port1
+S[2] <= my1bitfulladder:a2.port1
+S[3] <= my1bitfulladder:a3.port1
+S[4] <= my1bitfulladder:a4.port1
+S[5] <= my1bitfulladder:a5.port1
+S[6] <= my1bitfulladder:a6.port1
+S[7] <= my1bitfulladder:a7.port1
+Cout <= my1bitfulladder:a7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|datapath:data|alu:arith|my16bitaddsub_gate:subby_boi|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi
+y[0] <= muxxor:mux1.port0
+y[1] <= muxxor:mux2.port0
+y[2] <= muxxor:mux3.port0
+y[3] <= muxxor:mux4.port0
+y[4] <= muxxor:mux5.port0
+y[5] <= muxxor:mux6.port0
+y[6] <= muxxor:mux7.port0
+y[7] <= muxxor:mux8.port0
+y[8] <= muxxor:mux9.port0
+y[9] <= muxxor:mux10.port0
+y[10] <= muxxor:mux11.port0
+y[11] <= muxxor:mux12.port0
+y[12] <= muxxor:mux13.port0
+y[13] <= muxxor:mux14.port0
+y[14] <= muxxor:mux15.port0
+y[15] <= muxxor:mux16.port0
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+a[8] => a[8].IN1
+a[9] => a[9].IN1
+a[10] => a[10].IN1
+a[11] => a[11].IN1
+a[12] => a[12].IN1
+a[13] => a[13].IN1
+a[14] => a[14].IN1
+a[15] => a[15].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+b[8] => b[8].IN1
+b[9] => b[9].IN1
+b[10] => b[10].IN1
+b[11] => b[11].IN1
+b[12] => b[12].IN1
+b[13] => b[13].IN1
+b[14] => b[14].IN1
+b[15] => b[15].IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux2
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux2|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux2|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux3
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux3|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux3|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux4
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux4|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux4|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux5
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux5|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux5|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux6
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux6|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux6|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux7
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux7|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux7|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux8
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux8|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux8|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux9
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux9|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux9|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux10
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux10|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux10|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux11
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux11|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux11|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux12
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux12|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux12|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux13
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux13|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux13|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux14
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux14|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux14|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux15
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux15|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux15|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux16
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux16|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|muxxor16:muxy_boi|muxxor:mux16|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|datapath:data|alu:arith|multiply:multy_boi
+s[0] <= p0.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= Add3.DB_MAX_OUTPUT_PORT_TYPE
+s[5] <= Add4.DB_MAX_OUTPUT_PORT_TYPE
+s[6] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+s[7] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[8] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[9] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[10] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[11] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[12] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[13] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[14] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+s[15] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
+y[0] => p0.DATAB
+y[0] => p1[0].DATAB
+y[0] => p2[0].DATAB
+y[0] => p3[0].DATAB
+y[0] => p4[0].DATAB
+y[0] => p5[0].DATAB
+y[0] => p6[0].DATAB
+y[0] => p7[0].DATAB
+y[1] => p0[1].DATAB
+y[1] => p1[1].DATAB
+y[1] => p2[1].DATAB
+y[1] => p3[1].DATAB
+y[1] => p4[1].DATAB
+y[1] => p5[1].DATAB
+y[1] => p6[1].DATAB
+y[1] => p7[1].DATAB
+y[2] => p0[2].DATAB
+y[2] => p1[2].DATAB
+y[2] => p2[2].DATAB
+y[2] => p3[2].DATAB
+y[2] => p4[2].DATAB
+y[2] => p5[2].DATAB
+y[2] => p6[2].DATAB
+y[2] => p7[2].DATAB
+y[3] => p0[3].DATAB
+y[3] => p1[3].DATAB
+y[3] => p2[3].DATAB
+y[3] => p3[3].DATAB
+y[3] => p4[3].DATAB
+y[3] => p5[3].DATAB
+y[3] => p6[3].DATAB
+y[3] => p7[3].DATAB
+y[4] => p0[4].DATAB
+y[4] => p1[4].DATAB
+y[4] => p2[4].DATAB
+y[4] => p3[4].DATAB
+y[4] => p4[4].DATAB
+y[4] => p5[4].DATAB
+y[4] => p6[4].DATAB
+y[4] => p7[4].DATAB
+y[5] => p0[5].DATAB
+y[5] => p1[5].DATAB
+y[5] => p2[5].DATAB
+y[5] => p3[5].DATAB
+y[5] => p4[5].DATAB
+y[5] => p5[5].DATAB
+y[5] => p6[5].DATAB
+y[5] => p7[5].DATAB
+y[6] => p0[6].DATAB
+y[6] => p1[6].DATAB
+y[6] => p2[6].DATAB
+y[6] => p3[6].DATAB
+y[6] => p4[6].DATAB
+y[6] => p5[6].DATAB
+y[6] => p6[6].DATAB
+y[6] => p7[6].DATAB
+y[7] => p0[7].DATAB
+y[7] => p1[7].DATAB
+y[7] => p2[7].DATAB
+y[7] => p3[7].DATAB
+y[7] => p4[7].DATAB
+y[7] => p5[7].DATAB
+y[7] => p6[7].DATAB
+y[7] => p7[7].DATAB
+x[0] => p0[7].OUTPUTSELECT
+x[0] => p0[6].OUTPUTSELECT
+x[0] => p0[5].OUTPUTSELECT
+x[0] => p0[4].OUTPUTSELECT
+x[0] => p0[3].OUTPUTSELECT
+x[0] => p0[2].OUTPUTSELECT
+x[0] => p0[1].OUTPUTSELECT
+x[0] => p0.OUTPUTSELECT
+x[1] => p1[7].OUTPUTSELECT
+x[1] => p1[6].OUTPUTSELECT
+x[1] => p1[5].OUTPUTSELECT
+x[1] => p1[4].OUTPUTSELECT
+x[1] => p1[3].OUTPUTSELECT
+x[1] => p1[2].OUTPUTSELECT
+x[1] => p1[1].OUTPUTSELECT
+x[1] => p1[0].OUTPUTSELECT
+x[2] => p2[7].OUTPUTSELECT
+x[2] => p2[6].OUTPUTSELECT
+x[2] => p2[5].OUTPUTSELECT
+x[2] => p2[4].OUTPUTSELECT
+x[2] => p2[3].OUTPUTSELECT
+x[2] => p2[2].OUTPUTSELECT
+x[2] => p2[1].OUTPUTSELECT
+x[2] => p2[0].OUTPUTSELECT
+x[3] => p3[7].OUTPUTSELECT
+x[3] => p3[6].OUTPUTSELECT
+x[3] => p3[5].OUTPUTSELECT
+x[3] => p3[4].OUTPUTSELECT
+x[3] => p3[3].OUTPUTSELECT
+x[3] => p3[2].OUTPUTSELECT
+x[3] => p3[1].OUTPUTSELECT
+x[3] => p3[0].OUTPUTSELECT
+x[4] => p4[7].OUTPUTSELECT
+x[4] => p4[6].OUTPUTSELECT
+x[4] => p4[5].OUTPUTSELECT
+x[4] => p4[4].OUTPUTSELECT
+x[4] => p4[3].OUTPUTSELECT
+x[4] => p4[2].OUTPUTSELECT
+x[4] => p4[1].OUTPUTSELECT
+x[4] => p4[0].OUTPUTSELECT
+x[5] => p5[7].OUTPUTSELECT
+x[5] => p5[6].OUTPUTSELECT
+x[5] => p5[5].OUTPUTSELECT
+x[5] => p5[4].OUTPUTSELECT
+x[5] => p5[3].OUTPUTSELECT
+x[5] => p5[2].OUTPUTSELECT
+x[5] => p5[1].OUTPUTSELECT
+x[5] => p5[0].OUTPUTSELECT
+x[6] => p6[7].OUTPUTSELECT
+x[6] => p6[6].OUTPUTSELECT
+x[6] => p6[5].OUTPUTSELECT
+x[6] => p6[4].OUTPUTSELECT
+x[6] => p6[3].OUTPUTSELECT
+x[6] => p6[2].OUTPUTSELECT
+x[6] => p6[1].OUTPUTSELECT
+x[6] => p6[0].OUTPUTSELECT
+x[7] => p7[7].OUTPUTSELECT
+x[7] => p7[6].OUTPUTSELECT
+x[7] => p7[5].OUTPUTSELECT
+x[7] => p7[4].OUTPUTSELECT
+x[7] => p7[3].OUTPUTSELECT
+x[7] => p7[2].OUTPUTSELECT
+x[7] => p7[1].OUTPUTSELECT
+x[7] => p7[0].OUTPUTSELECT
+
+
+|proj1|ctr:controller
+clk => clk.IN1
+rst => rst.IN1
+zflag => ~NO_FANOUT~
+opcode[0] => Equal0.IN0
+opcode[0] => Equal1.IN31
+opcode[0] => Equal2.IN1
+opcode[0] => Equal3.IN31
+opcode[0] => Equal4.IN1
+opcode[0] => Equal5.IN31
+opcode[0] => Equal6.IN2
+opcode[0] => Equal7.IN31
+opcode[0] => Equal8.IN1
+opcode[1] => Equal0.IN31
+opcode[1] => Equal1.IN0
+opcode[1] => Equal2.IN0
+opcode[1] => Equal3.IN30
+opcode[1] => Equal4.IN31
+opcode[1] => Equal5.IN1
+opcode[1] => Equal6.IN1
+opcode[1] => Equal7.IN30
+opcode[1] => Equal8.IN31
+opcode[2] => Equal0.IN30
+opcode[2] => Equal1.IN30
+opcode[2] => Equal2.IN31
+opcode[2] => Equal3.IN0
+opcode[2] => Equal4.IN0
+opcode[2] => Equal5.IN0
+opcode[2] => Equal6.IN0
+opcode[2] => Equal7.IN29
+opcode[2] => Equal8.IN30
+opcode[3] => Equal0.IN29
+opcode[3] => Equal1.IN29
+opcode[3] => Equal2.IN30
+opcode[3] => Equal3.IN29
+opcode[3] => Equal4.IN30
+opcode[3] => Equal5.IN30
+opcode[3] => Equal6.IN31
+opcode[3] => Equal7.IN0
+opcode[3] => Equal8.IN0
+opcode[4] => Equal0.IN28
+opcode[4] => Equal1.IN28
+opcode[4] => Equal2.IN29
+opcode[4] => Equal3.IN28
+opcode[4] => Equal4.IN29
+opcode[4] => Equal5.IN29
+opcode[4] => Equal6.IN30
+opcode[4] => Equal7.IN28
+opcode[4] => Equal8.IN29
+opcode[5] => Equal0.IN27
+opcode[5] => Equal1.IN27
+opcode[5] => Equal2.IN28
+opcode[5] => Equal3.IN27
+opcode[5] => Equal4.IN28
+opcode[5] => Equal5.IN28
+opcode[5] => Equal6.IN29
+opcode[5] => Equal7.IN27
+opcode[5] => Equal8.IN28
+opcode[6] => Equal0.IN26
+opcode[6] => Equal1.IN26
+opcode[6] => Equal2.IN27
+opcode[6] => Equal3.IN26
+opcode[6] => Equal4.IN27
+opcode[6] => Equal5.IN27
+opcode[6] => Equal6.IN28
+opcode[6] => Equal7.IN26
+opcode[6] => Equal8.IN27
+opcode[7] => Equal0.IN25
+opcode[7] => Equal1.IN25
+opcode[7] => Equal2.IN26
+opcode[7] => Equal3.IN25
+opcode[7] => Equal4.IN26
+opcode[7] => Equal5.IN26
+opcode[7] => Equal6.IN27
+opcode[7] => Equal7.IN25
+opcode[7] => Equal8.IN26
+muxPC <= muxPC.DB_MAX_OUTPUT_PORT_TYPE
+muxMAR <= muxMAR.DB_MAX_OUTPUT_PORT_TYPE
+muxACC <= muxACC.DB_MAX_OUTPUT_PORT_TYPE
+loadMAR <= loadMAR.DB_MAX_OUTPUT_PORT_TYPE
+loadPC <= loadPC.DB_MAX_OUTPUT_PORT_TYPE
+loadACC <= loadACC.DB_MAX_OUTPUT_PORT_TYPE
+loadMDR <= loadMDR.DB_MAX_OUTPUT_PORT_TYPE
+loadIR <= loadIR.DB_MAX_OUTPUT_PORT_TYPE
+opALU[0] <= opALU[0].DB_MAX_OUTPUT_PORT_TYPE
+opALU[1] <= opALU.DB_MAX_OUTPUT_PORT_TYPE
+MemRW <= MemRW.DB_MAX_OUTPUT_PORT_TYPE
+ACC_reg[0] => ACC_reg[0].IN1
+ACC_reg[1] => ACC_reg[1].IN1
+ACC_reg[2] => ACC_reg[2].IN1
+ACC_reg[3] => ACC_reg[3].IN1
+ACC_reg[4] => ACC_reg[4].IN1
+ACC_reg[5] => ACC_reg[5].IN1
+ACC_reg[6] => ACC_reg[6].IN1
+ACC_reg[7] => ACC_reg[7].IN1
+ACC_reg[8] => ACC_reg[8].IN1
+ACC_reg[9] => ACC_reg[9].IN1
+ACC_reg[10] => ACC_reg[10].IN1
+ACC_reg[11] => ACC_reg[11].IN1
+ACC_reg[12] => ACC_reg[12].IN1
+ACC_reg[13] => ACC_reg[13].IN1
+ACC_reg[14] => ACC_reg[14].IN1
+ACC_reg[15] => ACC_reg[15].IN1
+MDR_reg[0] => MDR_reg[0].IN1
+MDR_reg[1] => MDR_reg[1].IN1
+MDR_reg[2] => MDR_reg[2].IN1
+MDR_reg[3] => MDR_reg[3].IN1
+MDR_reg[4] => MDR_reg[4].IN1
+MDR_reg[5] => MDR_reg[5].IN1
+MDR_reg[6] => MDR_reg[6].IN1
+MDR_reg[7] => MDR_reg[7].IN1
+MDR_reg[8] => MDR_reg[8].IN1
+MDR_reg[9] => MDR_reg[9].IN1
+MDR_reg[10] => MDR_reg[10].IN1
+MDR_reg[11] => MDR_reg[11].IN1
+MDR_reg[12] => MDR_reg[12].IN1
+MDR_reg[13] => MDR_reg[13].IN1
+MDR_reg[14] => MDR_reg[14].IN1
+MDR_reg[15] => MDR_reg[15].IN1
+div_out[0] <= my8bitdivider:div_bitch.port0
+div_out[1] <= my8bitdivider:div_bitch.port0
+div_out[2] <= my8bitdivider:div_bitch.port0
+div_out[3] <= my8bitdivider:div_bitch.port0
+div_out[4] <= my8bitdivider:div_bitch.port0
+div_out[5] <= my8bitdivider:div_bitch.port0
+div_out[6] <= my8bitdivider:div_bitch.port0
+div_out[7] <= my8bitdivider:div_bitch.port0
+div_out[8] <= my8bitdivider:div_bitch.port0
+div_out[9] <= my8bitdivider:div_bitch.port0
+div_out[10] <= my8bitdivider:div_bitch.port0
+div_out[11] <= my8bitdivider:div_bitch.port0
+div_out[12] <= my8bitdivider:div_bitch.port0
+div_out[13] <= my8bitdivider:div_bitch.port0
+div_out[14] <= my8bitdivider:div_bitch.port0
+div_out[15] <= my8bitdivider:div_bitch.port0
+isDivide <= isDivide.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch
+Q[0] <= Q[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[8] <= Q[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[9] <= Q[9]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[10] <= Q[10]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[11] <= Q[11]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[12] <= Q[12]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[13] <= Q[13]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[14] <= Q[14]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Q[15] <= Q[15]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[0] <= R[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[4] <= R[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[5] <= R[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[6] <= R[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[7] <= R[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[8] <= R[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[9] <= R[9]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[10] <= R[10]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[11] <= R[11]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[12] <= R[12]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[13] <= R[13]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[14] <= R[14]$latch.DB_MAX_OUTPUT_PORT_TYPE
+R[15] <= R[15]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Done <= Done$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[0] => Selector55.IN1
+A[1] => Selector56.IN1
+A[2] => Selector57.IN1
+A[3] => Selector58.IN1
+A[4] => Selector59.IN1
+A[5] => Selector60.IN1
+A[6] => Selector61.IN1
+A[7] => Selector62.IN1
+A[8] => Selector63.IN1
+A[9] => Selector64.IN1
+A[10] => Selector65.IN1
+A[11] => Selector66.IN1
+A[12] => Selector67.IN1
+A[13] => Selector68.IN1
+A[14] => Selector69.IN1
+A[15] => Selector70.IN1
+B[0] => B_reg[0].DATAIN
+B[1] => B_reg[1].DATAIN
+B[2] => B_reg[2].DATAIN
+B[3] => B_reg[3].DATAIN
+B[4] => B_reg[4].DATAIN
+B[5] => B_reg[5].DATAIN
+B[6] => B_reg[6].DATAIN
+B[7] => B_reg[7].DATAIN
+B[8] => B_reg[8].DATAIN
+B[9] => B_reg[9].DATAIN
+B[10] => B_reg[10].DATAIN
+B[11] => B_reg[11].DATAIN
+B[12] => B_reg[12].DATAIN
+B[13] => B_reg[13].DATAIN
+B[14] => B_reg[14].DATAIN
+B[15] => B_reg[15].DATAIN
+Load => Selector37.IN3
+Load => Selector54.IN3
+Load => Selector71.IN3
+Load => B_reg[0].IN0
+Load => Selector17.IN3
+Load => Selector16.IN2
+clk => state~1.DATAIN
+Reset => state~3.DATAIN
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0
+O[0] <= my16bitfulladder:fa0.port0
+O[1] <= my16bitfulladder:fa0.port0
+O[2] <= my16bitfulladder:fa0.port0
+O[3] <= my16bitfulladder:fa0.port0
+O[4] <= my16bitfulladder:fa0.port0
+O[5] <= my16bitfulladder:fa0.port0
+O[6] <= my16bitfulladder:fa0.port0
+O[7] <= my16bitfulladder:fa0.port0
+O[8] <= my16bitfulladder:fa0.port0
+O[9] <= my16bitfulladder:fa0.port0
+O[10] <= my16bitfulladder:fa0.port0
+O[11] <= my16bitfulladder:fa0.port0
+O[12] <= my16bitfulladder:fa0.port0
+O[13] <= my16bitfulladder:fa0.port0
+O[14] <= my16bitfulladder:fa0.port0
+O[15] <= my16bitfulladder:fa0.port0
+Cout <= my16bitfulladder:fa0.port1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN2
+B[1] => B[1].IN2
+B[2] => B[2].IN2
+B[3] => B[3].IN2
+B[4] => B[4].IN2
+B[5] => B[5].IN2
+B[6] => B[6].IN2
+B[7] => B[7].IN2
+B[8] => B[8].IN2
+B[9] => B[9].IN2
+B[10] => B[10].IN2
+B[11] => B[11].IN2
+B[12] => B[12].IN2
+B[13] => B[13].IN2
+B[14] => B[14].IN2
+B[15] => B[15].IN2
+S => S.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n0
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n0|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n1
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n1|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n2
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n2|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n3
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n3|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n4
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n4|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n5
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n5|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n6
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n6|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n7
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n7|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n8
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n8|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n9
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:n9|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nA
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nA|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nB
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nB|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nC
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nC|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nD
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nD|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nE
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nE|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nF
+y <= my1bitmux:mux5.port0
+a => a.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|muxnot:nF|my1bitmux:mux5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0
+Out[0] <= my8bitmux:m000.port0
+Out[1] <= my8bitmux:m000.port0
+Out[2] <= my8bitmux:m000.port0
+Out[3] <= my8bitmux:m000.port0
+Out[4] <= my8bitmux:m000.port0
+Out[5] <= my8bitmux:m000.port0
+Out[6] <= my8bitmux:m000.port0
+Out[7] <= my8bitmux:m000.port0
+Out[8] <= my8bitmux:m100.port0
+Out[9] <= my8bitmux:m100.port0
+Out[10] <= my8bitmux:m100.port0
+Out[11] <= my8bitmux:m100.port0
+Out[12] <= my8bitmux:m100.port0
+Out[13] <= my8bitmux:m100.port0
+Out[14] <= my8bitmux:m100.port0
+Out[15] <= my8bitmux:m100.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+sel => sel.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100
+Out[0] <= my1bitmux:m0.port0
+Out[1] <= my1bitmux:m1.port0
+Out[2] <= my1bitmux:m2.port0
+Out[3] <= my1bitmux:m3.port0
+Out[4] <= my1bitmux:m4.port0
+Out[5] <= my1bitmux:m5.port0
+Out[6] <= my1bitmux:m6.port0
+Out[7] <= my1bitmux:m7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+sel => sel.IN8
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m7
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m6
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m100|my1bitmux:m0
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000
+Out[0] <= my1bitmux:m0.port0
+Out[1] <= my1bitmux:m1.port0
+Out[2] <= my1bitmux:m2.port0
+Out[3] <= my1bitmux:m3.port0
+Out[4] <= my1bitmux:m4.port0
+Out[5] <= my1bitmux:m5.port0
+Out[6] <= my1bitmux:m6.port0
+Out[7] <= my1bitmux:m7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+sel => sel.IN8
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m7
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m6
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m5
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitmux:m0|my8bitmux:m000|my1bitmux:m0
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0
+S[0] <= my8bitfulladder:a1.port0
+S[1] <= my8bitfulladder:a1.port0
+S[2] <= my8bitfulladder:a1.port0
+S[3] <= my8bitfulladder:a1.port0
+S[4] <= my8bitfulladder:a1.port0
+S[5] <= my8bitfulladder:a1.port0
+S[6] <= my8bitfulladder:a1.port0
+S[7] <= my8bitfulladder:a1.port0
+S[8] <= my8bitfulladder:a2.port0
+S[9] <= my8bitfulladder:a2.port0
+S[10] <= my8bitfulladder:a2.port0
+S[11] <= my8bitfulladder:a2.port0
+S[12] <= my8bitfulladder:a2.port0
+S[13] <= my8bitfulladder:a2.port0
+S[14] <= my8bitfulladder:a2.port0
+S[15] <= my8bitfulladder:a2.port0
+Cout <= my8bitfulladder:a2.port1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1
+S[0] <= my1bitfulladder:a0.port1
+S[1] <= my1bitfulladder:a1.port1
+S[2] <= my1bitfulladder:a2.port1
+S[3] <= my1bitfulladder:a3.port1
+S[4] <= my1bitfulladder:a4.port1
+S[5] <= my1bitfulladder:a5.port1
+S[6] <= my1bitfulladder:a6.port1
+S[7] <= my1bitfulladder:a7.port1
+Cout <= my1bitfulladder:a7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a0|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a1|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a2|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a3|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a4|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a5|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a6|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a1|my1bitfulladder:a7|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2
+S[0] <= my1bitfulladder:a0.port1
+S[1] <= my1bitfulladder:a1.port1
+S[2] <= my1bitfulladder:a2.port1
+S[3] <= my1bitfulladder:a3.port1
+S[4] <= my1bitfulladder:a4.port1
+S[5] <= my1bitfulladder:a5.port1
+S[6] <= my1bitfulladder:a6.port1
+S[7] <= my1bitfulladder:a7.port1
+Cout <= my1bitfulladder:a7.port0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a0|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a1|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a2|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a3|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a4|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a5|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a6|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7
+Cout <= muxor:O1.port0
+S <= my1bithalfadder:m1.port0
+A => A.IN1
+B => B.IN1
+Cin => Cin.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m0|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1
+sum <= muxxor:o1.port0
+carry <= muxand:a1.port0
+A => A.IN2
+B => B.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1
+y <= my1bitmux:mux3.port0
+a => a.IN1
+b => b.IN2
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux2
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxxor:o1|my1bitmux:mux3
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1
+y <= my1bitmux:mux1.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|my1bithalfadder:m1|muxand:a1|my1bitmux:mux1
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|muxor:O1
+y <= my1bitmux:mux4.port0
+a => a.IN1
+b => b.IN1
+
+
+|proj1|ctr:controller|my8bitdivider:div_bitch|my16bitaddsub_gate:a0|my16bitfulladder:fa0|my8bitfulladder:a2|my1bitfulladder:a7|muxor:O1|my1bitmux:mux4
+out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i0 => x1.IN0
+i1 => x2.IN0
+sel => x2.IN1
+sel => x1.IN1
+
+
